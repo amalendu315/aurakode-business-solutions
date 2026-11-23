@@ -1,0 +1,7 @@
+import { Aperture, Blocks, TrendingUp } from "lucide-react";
+const pillars = [
+  { number: "01", icon: Aperture, title: "Identity & Design", text: "A distinctive brand that makes the right first impression and keeps making it.", items: ["Brand strategy & identity", "Visual systems", "Web & interface design"] },
+  { number: "02", icon: Blocks, title: "Business Systems & Engineering", text: "Digital foundations that bring your people, processes, and customer experience together.", items: ["Websites & web apps", "Custom business tools", "Automation & integrations"] },
+  { number: "03", icon: TrendingUp, title: "Visibility & Growth", text: "A measurable path from being discovered to becoming the obvious choice.", items: ["Google Ads", "Search engine optimization", "Social media campaigns"] },
+];
+export function ServicesPillars() { return <section id="services" className="section services-section"><div className="section-heading section-heading-row"><div><span className="eyebrow">02 / WHAT WE DO</span><h2>Three disciplines.<br/><em>One direction.</em></h2></div><p>We bring the creative and technical work into focus so your business can show up with confidence and grow with intention.</p></div><div className="pillar-grid">{pillars.map(({number,icon:Icon,title,text,items})=><article className="pillar" key={number}><div className="pillar-head"><Icon size={28} strokeWidth={1.5}/><span>{number} / 03</span></div><h3>{title}</h3><p>{text}</p><ul>{items.map(item=><li key={item}>{item}</li>)}</ul></article>)}</div></section>; }
