@@ -7,8 +7,9 @@ import { WorkShowcase } from "@/components/sections/work-showcase";
 import { LeadCapture } from "@/components/sections/lead-capture";
 import { Footer } from "@/components/footer";
 import { FilmDirector } from "@/components/film-director";
+import { WhatsAppCTA } from "@/components/whatsapp-cta";
 import "./cinematic.css";
 
 export default function Home() {
-  return <div className="cinematic-site"><FilmDirector /><Navbar /><main id="main-content"><HeroMotionStage /><div className="film-interlude" aria-hidden="true"><span>THE STORY CONTINUES</span><i/><span>SCROLL TO EXPLORE</span></div><CapabilitiesBento /><ServicesPillars /><ProcessTimeline /><WorkShowcase /><LeadCapture /></main><Footer /></div>;
+  return <div className="cinematic-site"><FilmDirector /><Navbar /><main id="main-content"><HeroMotionStage /><div className="film-interlude" aria-hidden="true"><span>THE STORY CONTINUES</span><i/><span>SCROLL TO EXPLORE</span></div><CapabilitiesBento /><ServicesPillars /><ProcessTimeline /><WorkShowcase /><LeadCapture /></main><Footer /><WhatsAppCTA /></div>;
 }

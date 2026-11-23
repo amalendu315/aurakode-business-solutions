@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "AuraKode Business Solutions | Branding, Websites & Growth in Siliguri",
   description: "AuraKode Business Solutions helps ambitious businesses in Siliguri build a distinct brand, connected digital systems, and visibility through websites, SEO, Google Ads, and social media.",
   keywords: ["AuraKode Business Solutions", "Siliguri web design", "Siliguri branding agency", "Google Ads Siliguri", "SEO Siliguri", "business systems"],
+  icons: { icon: "/favicon.ico" },
   openGraph: { title: "AuraKode Business Solutions — Make your brand work harder", description: "Brand identity, business systems, websites and growth marketing from Siliguri, West Bengal.", type: "website", locale: "en_IN" },
   robots: { index: true, follow: true },
 };
