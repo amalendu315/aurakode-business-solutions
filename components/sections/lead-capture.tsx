@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { MessageCircle } from "lucide-react";
 import { whatsappUrl } from "@/lib/whatsapp";
 
@@ -9,13 +9,6 @@ const services = ["Brand & identity", "Website or web app", "Business systems", 
 export function LeadCapture() {
   const [selected, setSelected] = useState<string[]>([]);
   const [error, setError] = useState("");
-  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
-
-  useEffect(() => {
-    if (status !== "sent") return;
-    const timer = window.setTimeout(() => setStatus("idle"), 8000);
-    return () => window.clearTimeout(timer);
-  }, [status]);
 
   const toggle = (service: string) => {
     setSelected((current) =>
@@ -25,9 +18,8 @@ export function LeadCapture() {
     );
   };
 
-  const submit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const submit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (status === "sending") return;
     const form = event.currentTarget;
     const data = new FormData(form);
     const name = String(data.get("name") || "").trim();
@@ -46,39 +38,31 @@ export function LeadCapture() {
     }
 
     setError("");
-    setStatus("sending");
-    try {
-      const response = await fetch("/api/enquiry", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, phone, company, email, services: selected, message, website: data.get("website") }),
-      });
-      const result = await response.json() as { ok?: boolean; error?: string };
-      if (!response.ok || !result.ok) {
-        throw new Error(result.error || "We couldn't submit your enquiry. Please try again.");
-      }
-      form.reset();
-      setSelected([]);
-      setStatus("sent");
-    } catch (reason) {
-      setStatus("idle");
-      setError(reason instanceof Error ? reason.message : "We couldn't submit your enquiry. Please try again.");
-    }
+    const note = [
+      "Hi AuraKode, I'd like to discuss a project.",
+      `Name: ${name}`,
+      `Phone: ${phone}`,
+      company && `Business: ${company}`,
+      email && `Email: ${email}`,
+      selected.length && `Interested in: ${selected.join(", ")}`,
+      `Project: ${message}`,
+    ].filter(Boolean).join("\n");
+    window.location.assign(whatsappUrl(note));
   };
 
   return (
     <form className="ah-contact-form" onSubmit={submit} noValidate>
-      <div className="ah-form-head"><span>START A CONVERSATION</span><span>DIRECT ENQUIRY</span></div>
+      <div className="ah-form-head"><span>START A CONVERSATION</span><span>WHATSAPP ENQUIRY</span></div>
       <h3>Tell us what you&apos;re building.</h3>
-      <p className="ah-form-intro">A few details help us start with the right questions.</p>
+      <p className="ah-form-intro">Tell us the essentials. We&apos;ll use your note to start a useful conversation.</p>
       <div className="ah-form-grid">
         <label>
           Your name <span aria-hidden="true">*</span>
-          <input name="name" autoComplete="name" placeholder="What should we call you?" required />
+          <input name="name" autoComplete="name" placeholder="Your name" required />
         </label>
         <label>
           Your phone number <span aria-hidden="true">*</span>
-          <input name="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="Include your country code" required />
+          <input name="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="With country code" required />
         </label>
       </div>
       <label>
@@ -104,21 +88,12 @@ export function LeadCapture() {
         Work email <small>optional</small>
         <input name="email" type="email" autoComplete="email" placeholder="If email is easier for follow-up" />
       </label>
-      <div className="ah-form-honeypot" aria-hidden="true">
-        <label>Leave this field empty<input name="website" tabIndex={-1} autoComplete="off" /></label>
-      </div>
       {error && <p className="ah-form-error" role="alert">{error}</p>}
-      <button type="submit" className="ah-button ah-button-dark" disabled={status === "sending"}>
-        {status === "sending" ? "Submitting enquiry…" : "Send enquiry"} <MessageCircle size={18} />
+      <button type="submit" className="ah-button ah-button-dark">
+        Continue to WhatsApp <MessageCircle size={18} />
       </button>
-      <p className="ah-form-note">Your details are sent to AuraKode through WhatsApp so we can follow up. You won&apos;t leave this page.</p>
+      <p className="ah-form-note">WhatsApp opens with your details filled in. Review the message and tap Send to contact us.</p>
       <p className="ah-form-alternative">Prefer to chat? <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">Open WhatsApp directly</a></p>
-      {status === "sent" && (
-        <div className="ah-enquiry-toast" role="status">
-          <strong>Enquiry submitted</strong>
-          <span>Thanks for reaching out. We&apos;ll be in touch soon.</span>
-        </div>
-      )}
     </form>
   );
 }

@@ -15,7 +15,7 @@
 
 A customer might meet a business through an ad, visit its website, send an enquiry, and then speak with its team. Each step should feel like part of the same promise. AuraKode brings the identity, digital experience, and supporting systems into one considered direction.
 
-This repository contains our responsive business website. It introduces the work, shows our approach through an explicitly fictional concept project, answers common project questions, and gives visitors a direct path to start a conversation.
+This repository contains our responsive business website. It links to two live client sites, presents the Shift.Store ecommerce project in testing, shows our approach through an explicitly fictional concept project, answers common project questions, and gives visitors a direct path to start a conversation.
 
 ## What the site covers
 
@@ -24,11 +24,13 @@ This repository contains our responsive business website. It introduces the work
 | Brand & identity | Positioning, messaging, visual identity, guidelines, and campaign direction |
 | Web & business systems | Websites, web apps, dashboards, forms, workflows, and integrations |
 | Visibility & growth | Search, paid campaigns, landing pages, and measurement |
+| Live client work | ConEquiparts and Online Parts: public parts websites with product discovery, enquiry journeys, and admin panels |
+| Shift.Store | A client project in testing, spanning an ad landing journey, Cashfree and cash on delivery checkout, order tracking, and an admin panel; the system map is illustrative |
 | Motive concept | How one brief could become an identity, website, and campaign; **Motive is fictional, not a client project** |
 | Starting points | Three ways a project can begin: launch, stronger presence, or clearer operations |
 | Process & FAQs | Review checkpoints, scope, content, timing, handover, and working remotely |
 
-The hero follows an **Idea → Identity → System** sequence. Each scene has its own image, message, and next step. Visitors can select a scene directly; the sequence advances automatically unless their device requests reduced motion. The page uses a cinematic layout on desktop, a framed editorial layout on tablet, and an app-inspired layout with a bottom navigation dock on phones.
+The hero follows an **Idea → Identity → System** sequence. Each scene has its own image, message, and next step. Visitors can select a scene directly or pause the automatic sequence; choosing a scene pauses it for reading. The sequence does not advance when a device requests reduced motion. The page uses a cinematic layout on desktop and phones, a framed editorial layout on tablet, and a bottom navigation dock on phones.
 
 ## Run locally
 
@@ -57,7 +59,6 @@ app/
   layout.tsx               Fonts, metadata, and document shell
   globals.css              Document reset and shared defaults
   agency.css               Active homepage and responsive visual system
-  api/enquiry/route.ts      Server-side WhatsApp notification endpoint
   opengraph-image.tsx      Generated social preview image
 components/
   agency-home.tsx          Page content, hero sequence, navigation, and interactions
@@ -66,6 +67,7 @@ lib/
   whatsapp.ts             WhatsApp number and prefilled-message URL
 public/
   brand/                  Logo lockups and marks
+  client-work/            Hero imagery from the linked live client websites
   ui-visuals/             Hero, service, concept, and starting-point imagery
 ```
 
@@ -75,7 +77,6 @@ public/
 - **Hero scenes and their order:** `heroScenes` in `components/agency-home.tsx`, with images in `public/ui-visuals/`
 - **Phone, tablet, and desktop styling:** `app/agency.css`
 - **Enquiry form fields and choices:** `components/sections/lead-capture.tsx`
-- **WhatsApp API settings:** `.env.example` and `app/api/enquiry/route.ts`
 - **Logo files:** `public/brand/`; the inline mark used in the page is the `BrandMark` component
 - **Contact number and default message:** `lib/whatsapp.ts`
 - **Page title, description, and social metadata:** `app/layout.tsx` and `app/opengraph-image.tsx`
@@ -83,42 +84,20 @@ public/
 ## Design and interaction notes
 
 - Images are served through `next/image` with responsive sizes. The primary hero frame is prioritized; supporting imagery is deferred or sized for its section.
-- The hero controls are buttons with pressed states. The automatic sequence stops for visitors who request reduced motion.
+- The hero controls are buttons with pressed states. The automatic sequence can be paused and stops for visitors who request reduced motion.
 - The page has a skip link, semantic sections, keyboard-accessible navigation, and accessible FAQ controls.
-- The contact form asks for a name, phone number, and project note, with optional business name, email, and service choices. It submits in place to the server, which sends an enquiry notification to AuraKode through Meta's WhatsApp Business Platform. The visitor sees a confirmation toast after Meta accepts the message; no WhatsApp redirect is involved.
-- Enquiries are not stored in this repository. If the server is not configured or Meta rejects a message, the form shows an error and offers a direct chat link.
+- The contact form asks for a name, phone number, and project note, with optional business name, email, and service choices. It validates the details, then opens WhatsApp with a prefilled message. The visitor reviews it and taps **Send** there. The site does not claim the message was delivered before that step.
+- Enquiries are not stored in this repository. This handoff needs no Meta API credentials.
+- ConEquiparts and Online Parts link to their live HTTPS sites. The local project images are hero assets served by those websites; the cards are not interface screenshots.
+- The Shift.Store summary describes work supplied by the business owner and clearly says the project is in testing. Its system map is explicitly illustrative; no performance figures or interface screenshots are claimed.
 - The Motive screens and photographs illustrate a design direction. They are labeled as a concept rather than presented as completed client work.
 
 ## Before publishing
 
-1. Configure the WhatsApp enquiry integration below and test an actual message to the intended recipient.
-2. Confirm the public WhatsApp number in `lib/whatsapp.ts` and all business copy.
-3. Add the final production domain to metadata configuration so social image URLs resolve to the live site. The build otherwise falls back to localhost for those URLs.
-4. Replace or supplement concept work with approved, factual client projects and results when available.
-5. Add production-grade abuse protection or persistent rate limiting to the public enquiry endpoint before using a paid messaging account at scale.
-6. Run `npm run build` and `npm run lint`, then review the hero controls, mobile dock, enquiry form, and key sections on real devices.
-
-## WhatsApp enquiry setup
-
-The form uses a server-side [WhatsApp Business Platform](https://developers.facebook.com/documentation/business-messaging/whatsapp/overview/) account. A normal `wa.me` link cannot send a message without the visitor opening WhatsApp. Meta requires an [approved message template](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/overview) for this server-initiated notification.
-
-1. Set up a WhatsApp Business Platform sender and obtain its **phone number ID** and server-side access token with messaging permission.
-2. Create and get approval for a template named `website_enquiry_alert` (or set your own name in the environment). Use language `en_US` and six positional body variables in this order:
-
-   ```text
-   New AuraKode website enquiry
-   Name: {{1}}
-   Phone: {{2}}
-   Business: {{3}}
-   Email: {{4}}
-   Services: {{5}}
-   Project: {{6}}
-   Please follow up with this contact.
-   ```
-
-3. Copy `.env.example` to `.env.local` and set the token, sender phone number ID, and `WHATSAPP_ENQUIRY_RECIPIENT` in international format without spaces. Set the recipient to a WhatsApp number **different from the API sender number** that can receive template messages. Keep the token out of Git and do not prefix it with `NEXT_PUBLIC_`.
-4. Add the same variables to your server-hosting provider. The deployment must support Next.js Route Handlers; a static-file-only host cannot run the enquiry endpoint.
-5. Submit a test enquiry and confirm it arrives on the recipient's WhatsApp. The toast means Meta accepted the send request; final delivery can still fail later, so configure Meta delivery webhooks if delivery tracking is needed.
+1. Confirm the public WhatsApp number in `lib/whatsapp.ts` and all business copy. Submit a test enquiry and check the prefilled message before sending.
+2. Add the final production domain to metadata configuration so social image URLs resolve to the live site. The build otherwise falls back to localhost for those URLs.
+3. Confirm the Shift.Store name and details can be published. Add approved screenshots, a live link, and factual outcomes when supplied.
+4. Run `npm run build` and `npm run lint`, then review the hero controls, mobile dock, enquiry form, and key sections on real devices.
 
 ## Contact
 

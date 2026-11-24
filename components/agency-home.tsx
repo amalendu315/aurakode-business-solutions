@@ -6,13 +6,15 @@ import { motion, useReducedMotion } from "framer-motion";
 import {
   ArrowDown,
   ArrowUpRight,
+  BriefcaseBusiness,
   ChevronDown,
-  Clapperboard,
   Compass,
   House,
   LayoutGrid,
   Menu,
   MessageCircle,
+  Pause,
+  Play,
   X,
 } from "lucide-react";
 import { whatsappUrl } from "@/lib/whatsapp";
@@ -56,8 +58,8 @@ const heroScenes = [
 
 const appNavigation = [
   { id: "top", label: "Home", Icon: House },
+  { id: "real-work", label: "Work", Icon: BriefcaseBusiness },
   { id: "services", label: "Services", Icon: LayoutGrid },
-  { id: "studio-demo", label: "Studio", Icon: Clapperboard },
   { id: "work-with-us", label: "Start", Icon: Compass },
   { id: "contact", label: "Talk", Icon: MessageCircle },
 ];
@@ -71,6 +73,7 @@ const services = [
     image: "/ui-visuals/identity-worktable.jpg",
     alt: "Art directed brand materials with paper, type blocks, and translucent blue acrylic",
     visualLabel: "POSITIONING / IDENTITY / APPLICATION",
+    visualRoute: ["Positioning", "Brand system", "Launch toolkit"],
     description:
       "If your website, social posts, and sales material feel like different businesses, a new logo alone will not solve it. We clarify what you want to be known for, then build a voice and visual system your team can use consistently.",
     items: [
@@ -92,6 +95,7 @@ const services = [
     image: "/ui-visuals/digital-systems.jpg",
     alt: "Desktop and mobile interfaces connected to a layered digital system",
     visualLabel: "CUSTOMER / TEAM / TOOLS",
+    visualRoute: ["Site enquiry", "Lead context", "Team workflow"],
     description:
       "A useful website answers the visitor’s questions and gives them an obvious next step. Behind it, forms, dashboards, and workflows should help your team respond with context instead of creating more admin.",
     items: [
@@ -113,6 +117,7 @@ const services = [
     image: "/ui-visuals/growth-path.jpg",
     alt: "An illuminated path linking measured touchpoints to a destination",
     visualLabel: "DISCOVERY / RELEVANCE / ACTION",
+    visualRoute: ["Search intent", "Focused page", "Enquiry"],
     description:
       "Traffic is only useful when the right person lands somewhere relevant. We connect the search or campaign promise to the page, the next action, and the signals that tell us what is working.",
     items: [
@@ -125,6 +130,31 @@ const services = [
       "A clearer route from discovery to inquiry, with the right pages and measures for the chosen channels.",
     example:
       "A search ad for one service should open a page about that service, answer likely objections, and make the next step easy to find.",
+  },
+];
+
+const liveProjects = [
+  {
+    name: "ConEquiparts",
+    url: "https://conequiparts.com/",
+    image: "/client-work/conequiparts-hero.webp",
+    alt: "Earthmoving equipment image used on the ConEquiparts website",
+    category: "EARTHMOVING PARTS / GLOBAL ENQUIRIES",
+    title: "A searchable parts site for a global buyer.",
+    description:
+      "A public catalog helps buyers find genuine, OEM, and aftermarket parts and send a detailed sales enquiry. We built the public website and its admin panel as one working system.",
+    capabilities: ["Part search", "Product catalog", "Sales enquiries", "Admin panel"],
+  },
+  {
+    name: "Online Parts",
+    url: "https://onlineparts.shop/",
+    image: "/client-work/online-parts-hero.webp",
+    alt: "Backhoe loader image used on the Online Parts website",
+    category: "JCB PARTS / ENQUIRY-LED COMMERCE",
+    title: "Make the right spare part easier to find.",
+    description:
+      "The live site combines a parts finder, product browsing, and a direct enquiry route for buyers. A full admin panel supports the business behind the public experience.",
+    capabilities: ["Parts finder", "Product browsing", "Enquiry flow", "Admin panel"],
   },
 ];
 
@@ -257,27 +287,6 @@ const journeySteps = [
   {
     title: "Your team can follow through",
     copy: "The right information reaches the right place, so the conversation can continue.",
-  },
-];
-
-const problemPatterns = [
-  {
-    request: "“Our brand feels inconsistent.”",
-    look: "We compare the website, social posts, proposals, and customer language. The gap may be in the message, the visual system, or the way people apply it.",
-    response:
-      "A shared message and usable brand rules usually come before more campaign artwork.",
-  },
-  {
-    request: "“Our website isn’t converting.”",
-    look: "We check what the page says first, how it behaves on a phone, where evidence appears, and whether the next action fits the visitor’s question.",
-    response:
-      "The fix might be page structure, better copy, a clearer offer, or a more useful inquiry flow.",
-  },
-  {
-    request: "“We need more leads.”",
-    look: "We look at the audience, search intent, campaign promise, landing page, and what is being measured before recommending more spend.",
-    response:
-      "A more relevant path can be a better first move than sending more traffic to the same page.",
   },
 ];
 
@@ -583,16 +592,17 @@ function StudioDemo() {
 export function AgencyHome() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [heroIndex, setHeroIndex] = useState(0);
+  const [heroPaused, setHeroPaused] = useState(false);
   const [activeSection, setActiveSection] = useState("top");
   const reducedMotion = useReducedMotion();
   useEffect(() => {
-    if (reducedMotion) return;
+    if (reducedMotion || heroPaused) return;
     const timer = window.setInterval(
       () => setHeroIndex((current) => (current + 1) % heroScenes.length),
       5500,
     );
     return () => window.clearInterval(timer);
-  }, [heroIndex, reducedMotion]);
+  }, [heroIndex, heroPaused, reducedMotion]);
   useEffect(() => {
     const updateSection = () => {
       let current = "top";
@@ -640,8 +650,8 @@ export function AgencyHome() {
             </span>
           </a>
           <nav className="ah-nav-links" aria-label="Main navigation">
+            <a href="#real-work">Our work</a>
             <a href="#services">Services</a>
-            <a href="#studio-demo">Our thinking</a>
             <a href="#work-with-us">Start here</a>
             <a href="#process">Process</a>
           </nav>
@@ -665,11 +675,11 @@ export function AgencyHome() {
             className="ah-mobile-menu"
             aria-label="Mobile navigation"
           >
+            <a href="#real-work" onClick={closeMenu}>
+              Our work
+            </a>
             <a href="#services" onClick={closeMenu}>
               Services
-            </a>
-            <a href="#studio-demo" onClick={closeMenu}>
-              Our thinking
             </a>
             <a href="#work-with-us" onClick={closeMenu}>
               Start here
@@ -687,7 +697,7 @@ export function AgencyHome() {
         )}
       </header>
       <main id="main-content">
-        <section className="ah-hero" id="top">
+        <section className="ah-hero" id="top" data-paused={heroPaused || reducedMotion ? "true" : "false"}>
           <div className="ah-hero-scene" aria-live="off">
             {heroScenes.map((scene, index) => (
               <Image
@@ -698,7 +708,7 @@ export function AgencyHome() {
                 fill
                 priority={index === 0}
                 loading={index === 0 ? undefined : "eager"}
-                sizes="100vw"
+                sizes="(max-width: 600px) 100vw, (max-width: 1024px) 48vw, 100vw"
                 className={`ah-hero-frame ${heroIndex === index ? "is-active" : ""}`}
               />
             ))}
@@ -735,12 +745,25 @@ export function AgencyHome() {
                   className={heroIndex === index ? "is-active" : ""}
                   aria-label={`Show ${scene.label} scene`}
                   aria-pressed={heroIndex === index}
-                  onClick={() => setHeroIndex(index)}
+                  onClick={() => {
+                    setHeroIndex(index);
+                    setHeroPaused(true);
+                  }}
                 >
                   <span>{scene.number} / {scene.label.toUpperCase()}</span>
                   <i aria-hidden="true" />
                 </button>
               ))}
+              <button
+                type="button"
+                className="ah-hero-pause"
+                aria-label={heroPaused ? "Play hero scenes" : "Pause hero scenes"}
+                aria-pressed={heroPaused}
+                onClick={() => setHeroPaused((paused) => !paused)}
+              >
+                {heroPaused ? <Play size={13} aria-hidden="true" /> : <Pause size={13} aria-hidden="true" />}
+                <span>{heroPaused ? "PLAY SCENES" : "PAUSE SCENES"}</span>
+              </button>
             </div>
           </div>
           <div className="ah-hero-foot">
@@ -789,6 +812,79 @@ export function AgencyHome() {
           </div>
         </section>
 
+        <section className="ah-proof" id="real-work">
+          <div className="ah-wrap">
+            <Reveal className="ah-proof-live-head">
+              <span className="ah-section-label">LIVE CLIENT WEBSITES</span>
+              <h2>Work you can <em>open and explore.</em></h2>
+              <p>These are public websites we built for two earthmoving parts businesses. Each connects product discovery with a sales enquiry path and an admin panel behind the scenes.</p>
+            </Reveal>
+            <div className="ah-proof-live-grid">
+              {liveProjects.map((project) => (
+                <Reveal key={project.name} className="ah-proof-live-card">
+                  <a href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${project.name} website`}>
+                    <div className="ah-proof-live-image">
+                      <Image src={project.image} alt={project.alt} fill sizes="(max-width: 800px) 100vw, 50vw" />
+                      <span>LIVE WEBSITE</span>
+                      <strong>{project.name}</strong>
+                    </div>
+                    <div className="ah-proof-live-body">
+                      <span>{project.category}</span>
+                      <h3>{project.title}</h3>
+                      <p>{project.description}</p>
+                      <div className="ah-proof-live-tags">
+                        {project.capabilities.map((item) => <small key={item}>{item}</small>)}
+                      </div>
+                      <b>Visit live website <ArrowUpRight size={17} aria-hidden="true" /></b>
+                    </div>
+                  </a>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+          <div className="ah-wrap ah-proof-grid">
+            <Reveal className="ah-proof-copy">
+              <span className="ah-section-label">CLIENT PROJECT · IN TESTING</span>
+              <h2>From an ad to <em>a completed order.</em></h2>
+              <p>
+                Shift.Store is a home decor ecommerce project currently in client
+                testing. We built it for the full buying journey: a customer can arrive from a campaign,
+                find a product, choose Cashfree online payment or cash on
+                delivery, and use their order ID to track what happens next.
+              </p>
+              <p>
+                Behind that journey, we also built an admin panel to manage
+                the website. The work connects the storefront, checkout, order
+                tracking, and day-to-day operations in one system.
+              </p>
+              <div className="ah-proof-actions">
+                <a href="#digital">Explore web and systems</a>
+                <a href="#studio-demo">See our design concept</a>
+              </div>
+            </Reveal>
+            <Reveal className="ah-proof-diagram" delay={0.08}>
+              <div className="ah-proof-diagram-head">
+                <span>SHIFT.STORE / IN TESTING</span>
+                <span>ILLUSTRATIVE SYSTEM MAP</span>
+              </div>
+              <div className="ah-proof-flow">
+                <span>Campaign visit</span>
+                <span>Product choice</span>
+                <span>Cashfree or COD</span>
+                <span>Order ID</span>
+                <span>Order tracking</span>
+              </div>
+              <div className="ah-proof-system">
+                <div><small>STOREFRONT</small><strong>Discover → buy → track</strong></div>
+                <div><small>ADMIN PANEL</small><strong>Manage the store</strong></div>
+              </div>
+              <p>This diagram explains the delivered journey; it is not a screenshot of the live interface.</p>
+            </Reveal>
+          </div>
+        </section>
+
+        <StudioDemo />
+
         <section className="ah-services" id="services">
           <div className="ah-wrap">
             <Reveal className="ah-services-intro">
@@ -820,6 +916,12 @@ export function AgencyHome() {
                       sizes="(max-width: 850px) 100vw, 50vw"
                       className="ah-service-photo"
                     />
+                    <div className="ah-service-visual-route" aria-label="Example workflow">
+                      <span>ONE POSSIBLE PATH</span>
+                      {service.visualRoute.map((step, index) => (
+                        <div key={step}><small>{String(index + 1).padStart(2, "0")}</small>{step}</div>
+                      ))}
+                    </div>
                     <div className="ah-service-visual-meta">
                       <span>{service.number} / AURAKODE</span>
                       <strong>{service.visualLabel}</strong>
@@ -854,8 +956,6 @@ export function AgencyHome() {
             </div>
           </div>
         </section>
-
-        <StudioDemo />
 
         <section className="ah-entry" id="work-with-us">
           <div className="ah-wrap">
@@ -916,36 +1016,6 @@ export function AgencyHome() {
                     </div>
                   </div>
                 </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="ah-connection">
-          <div className="ah-wrap">
-            <Reveal className="ah-connection-intro">
-              <span className="ah-section-label">BEHIND THE BRIEF</span>
-              <h2>
-                Find the problem
-                <br />
-                <em>worth solving.</em>
-              </h2>
-              <p>
-                Clients usually arrive with a request. A useful project starts
-                by checking what is causing the friction underneath it.
-              </p>
-            </Reveal>
-            <div className="ah-connection-flow ah-questions-flow">
-              {problemPatterns.map((pattern) => (
-                <div key={pattern.request}>
-                  <span>WHAT WE HEAR</span>
-                  <strong>{pattern.request}</strong>
-                  <p>{pattern.look}</p>
-                  <div className="ah-pattern-response">
-                    <small>WHERE WE MIGHT START</small>
-                    <p>{pattern.response}</p>
-                  </div>
-                </div>
               ))}
             </div>
           </div>
@@ -1040,6 +1110,11 @@ export function AgencyHome() {
                 current site if you have one, and when the change matters. A few
                 sentences are enough.
               </p>
+              <p className="ah-contact-expectation">
+                We&apos;ll review your note and reply with a suggested first step.
+                If a project makes sense, we&apos;ll agree on scope, timing, and
+                price before any work begins.
+              </p>
               <a
                 className="ah-contact-direct"
                 href={whatsappUrl()}
@@ -1089,7 +1164,8 @@ export function AgencyHome() {
               <div>
                 <strong>EXPLORE</strong>
                 <a href="#services">Services</a>
-                <a href="#studio-demo">Our thinking</a>
+                <a href="#real-work">Our work</a>
+                <a href="#studio-demo">Design concept</a>
                 <a href="#work-with-us">Start here</a>
                 <a href="#process">Process</a>
                 <a href="#questions">FAQs</a>
