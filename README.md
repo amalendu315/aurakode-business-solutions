@@ -1,212 +1,156 @@
 # AuraKode Business Solutions
 
-Official website for **AuraKode Business Solutions**, a brand, digital, and growth studio based in Siliguri, West Bengal.
+**Brand. Digital. Systems. Growth.**
 
-The website presents AuraKode's integrated approach to brand identity, websites and business systems, SEO, paid media, and social campaigns. It is designed as a focused single-page experience that helps visitors understand AuraKode's services and start a project enquiry through WhatsApp.
+AuraKode Business Solutions is a creative and digital studio based in Siliguri, West Bengal. We help businesses turn ideas into clear identities, useful digital experiences, connected operations, and measurable growth.
 
-## Overview
+We work with founders and growing organisations that need more than isolated services. A strong brand should connect with the website, the customer journey, the team behind it, and every next step in the business.
 
-- Editorial, architectural, and high-contrast visual direction
-- Responsive single-page studio website
-- Brand, web, systems, and growth service presentation
-- Concept showcase and project starting-point guidance
-- Accessible mobile navigation and section-based FAQs
-- Framer Motion and GSAP-enhanced interactions
-- Browser-validated enquiry composer that opens a prefilled WhatsApp conversation
-- Local SEO metadata and generated Open Graph image support
+## What We Build
 
-## Technology
+### Brand & Identity
 
-| Area | Technology |
+Make the business easier to understand and remember.
+
+- Brand positioning and key messaging
+- Logo and visual identity systems
+- Brand guidelines and templates
+- Campaign art direction
+- Consistent brand applications
+
+### Web & Digital Experiences
+
+Give customers a clear route from discovery to action.
+
+- Marketing websites
+- Landing pages
+- Web applications and dashboards
+- Responsive digital experiences
+- Conversion-focused customer journeys
+
+### Business Systems
+
+Help teams reduce manual work and keep information connected.
+
+- Custom business tools
+- Enquiry and lead workflows
+- Dashboards and reporting
+- Forms and internal processes
+- Tool integrations and automation
+
+### Visibility & Growth
+
+Create relevant demand and turn attention into momentum.
+
+- Search engine optimisation
+- Google Ads and paid campaigns
+- Social media campaigns
+- Landing page strategy
+- Campaign measurement
+
+## How We Work
+
+Every engagement begins with the problem beneath the request.
+
+1. **Understand** - The business, audience, existing assets, and source of friction
+2. **Clarify** - The opportunity, message, priority, and desired outcome
+3. **Define** - The scope, deliverables, responsibilities, and milestones
+4. **Create** - The brand, experience, system, or campaign
+5. **Refine** - The work through structured reviews and practical feedback
+6. **Deliver** - A usable result with clear handover and next steps
+
+We believe a useful project should not end with an attractive output. It should give the business something clearer to communicate, a better experience to offer, or a more reliable way to operate.
+
+## The AuraKode Approach
+
+### Find the connected solution
+
+Brand, website, operations, and growth are often treated as separate projects. AuraKode looks at how they affect one another, so the final experience stays consistent from the first impression to the customer enquiry.
+
+### Make decisions visible
+
+Work moves through clear checkpoints. Clients understand what is being created, why it matters, and what comes next.
+
+### Build for real use
+
+Identity systems should be practical. Websites should answer real questions. Business tools should fit existing workflows. Campaigns should lead visitors toward a relevant next step.
+
+### Keep the message specific
+
+We focus on clear positioning and direct language rather than vague promises or generic technology claims.
+
+## Capabilities
+
+| Area | Typical Deliverables |
 | --- | --- |
-| Framework | Next.js 16, App Router |
-| UI | React 19 |
-| Language | Strict TypeScript |
-| Styling | CSS, Tailwind CSS utilities, component styles |
-| Animation | Framer Motion, GSAP |
-| Icons | Lucide React |
-| Fonts | Plus Jakarta Sans, Inter, JetBrains Mono |
-| Package manager | npm |
+| Brand | Strategy, visual identity, guidelines, campaign design |
+| Digital | Websites, landing pages, web applications, dashboards |
+| Systems | Custom tools, workflows, integrations, automation |
+| Growth | SEO, Google Ads, social campaigns, measurement |
 
-## Getting Started
+## What You Receive
 
-### Prerequisites
+Depending on the scope, AuraKode can deliver:
 
-- Node.js 20 or newer
-- npm
+- A clear brand direction
+- A practical visual identity system
+- Website and campaign-ready content direction
+- A responsive digital experience
+- Connected business workflows
+- A usable handover for the team
+- Defined priorities for future improvement
 
-### Installation
+Projects can begin with one focused need or form part of a connected brand, digital, and growth programme.
 
-```bash
-git clone https://github.com/amalendu315/aurakode-business-solutions.git
-cd aurakode-business-solutions
-npm ci
-```
+## Working with AuraKode
 
-### Development
+AuraKode works with:
 
-```bash
-npm run dev
-```
+- Founders starting or repositioning a business
+- Teams whose brand or website has fallen out of step with their offering
+- Organisations outgrowing manual processes
+- Businesses needing clearer search, advertising, or social campaigns
+- Local and remote clients across India
 
-Open `http://localhost:3000`.
+Based in Siliguri, working with businesses everywhere.
 
-### Production build
+## Start a Project
 
-```bash
-npm run build
-npm run start
-```
+Useful project context includes:
 
-### Available scripts
+- What the business does
+- Who the audience is
+- What feels unclear or inconsistent
+- What problem needs to be solved
+- A current website or existing brand assets, if available
+- The preferred timing
 
-| Command | Purpose |
-| --- | --- |
-| `npm run dev` | Start the Next.js development server |
-| `npm run build` | Create a production build using webpack |
-| `npm run start` | Run the production server |
-| `npm run lint` | Run ESLint across the repository |
+You do not need to arrive with a perfect brief. A few clear sentences are enough to begin the conversation.
 
-## Project Structure
+## Brand Principles
 
-```text
-app/
-  page.tsx                 Active route entry
-  layout.tsx               Root layout, fonts, and metadata
-  agency.css               Active Agency Home styles
-  globals.css              Shared document styles
-  opengraph-image.tsx      Generated social preview
+AuraKode's identity is built around a forward-moving **A** and **K** mark. It is intended to be recognisable at small sizes and usable across one-colour applications.
 
-brand/
-  identity.md              Official brand and voice guide
+The brand uses:
 
-components/
-  agency-home.tsx          Active single-page implementation
-  hero/                    Cinematic hero modules
-  sections/                Reusable or alternate page sections
+- **Night** - depth and authority
+- **Paper** - clarity and breathing room
+- **Signal** - a distinctive accent
+- **Deep Blue** - digital and technological confidence
+- **Inter, Plus Jakarta Sans, and JetBrains Mono** - clear, modern typography
 
-lib/
-  whatsapp.ts              WhatsApp destination and URL builder
+Detailed visual and voice guidance is available in [`brand/identity.md`](brand/identity.md).
 
-public/
-  brand/                   Logo, mark, and lockup assets
-  ui-visuals/              Section imagery
-  illustrations/           Illustration assets
-  audio/                   Hero voiceover
-  hero-storyboard-frames/  Cinematic storyboard assets
-```
+## Project Context
 
-The active website is rendered by `app/page.tsx` through `components/agency-home.tsx`. Other components in `components/` may represent supporting, reusable, or earlier implementations and are not all mounted in the current route.
+Additional project, delivery, and AI collaboration context is documented in [`context.md`](context.md).
 
-## Active Page
+## Confidentiality
 
-The live page includes:
+The AuraKode repository and implementation are intended for authorised business use. Source code, internal assets, customer information, and unpublished project materials may not be reproduced or redistributed without permission.
 
-- Brand, web, and business systems hero
-- Customer journey and connected-experience explanation
-- Brand identity, digital systems, and growth services
-- Concept-project showcase
-- Project starting points
-- Problem and solution patterns
-- Project process
-- Frequently asked questions
-- WhatsApp project enquiry composer
-- Responsive footer and navigation
+---
 
-## Enquiry Flow
-
-The website does not send form data to a server or store it in a database.
-
-1. The visitor enters their details and project requirements.
-2. Browser-side validation checks the name, email address, and project note.
-3. The website builds a prefilled WhatsApp message.
-4. WhatsApp opens in a new tab for the visitor to review and send.
-
-The destination number and URL builder are maintained in [`lib/whatsapp.ts`](lib/whatsapp.ts).
-
-## Brand Guidelines
-
-Use [`brand/identity.md`](brand/identity.md) for authoritative:
-
-- Logo and lockup usage
-- Brand palette
-- Typography
-- Brand voice
-- Clear-space and presentation rules
-
-Primary brand colours:
-
-| Role | Hex |
-| --- | --- |
-| Night | `#0A1724` |
-| Paper | `#F3F3EE` |
-| Ice | `#F0FAFB` |
-| Signal | `#73E7F5` |
-| Deep blue | `#0B83AE` |
-
-Brand assets are stored in [`public/brand/`](public/brand/). Keep the mark free of glows, bevels, and outlines.
-
-## Development Guidelines
-
-- Read [`context.md`](context.md) before using AI tools or starting an unfamiliar task.
-- Read [`AGENTS.md`](AGENTS.md) for repository-specific agent instructions.
-- Use the `@/` alias for imports rooted at the repository.
-- Preserve the existing copy, visual system, and customer journey unless a change explicitly requires otherwise.
-- Use Next.js `Image` for local imagery and provide meaningful `alt` text.
-- Preserve landmarks, skip links, focus states, labels, and accessible menu behavior.
-- Honour `prefers-reduced-motion` for animated interfaces.
-- Test all responsive layouts and changed WhatsApp URLs.
-
-## Verification
-
-Before submitting or deploying a change:
-
-```bash
-npm run lint
-npm run build
-```
-
-Then start the site and manually verify:
-
-- Desktop and mobile layouts
-- Navigation and mobile menu behavior
-- Internal anchor links
-- FAQ expansion
-- Form validation
-- WhatsApp message encoding
-- Reduced-motion behavior
-- Images and metadata
-
-There is no dedicated test suite in the repository. Linting, production builds, and manual browser verification are the current quality gates.
-
-## Deployment
-
-The project can be deployed to any platform that supports Next.js 16, including Vercel.
-
-Before deploying:
-
-1. Run `npm run lint`.
-2. Run `npm run build`.
-3. Verify metadata and the Open Graph preview.
-4. Test the WhatsApp flow on the production domain.
-5. Confirm that public image and audio assets are available.
-
-No environment variables or external services are required for the current implementation.
-
-## Contributing
-
-Contributions should be narrow and well verified.
-
-1. Create a feature branch.
-2. Follow the existing TypeScript and CSS conventions.
-3. Keep changes scoped to the relevant active implementation.
-4. Update directly related documentation or metadata.
-5. Run lint and build checks.
-6. Submit a pull request with a clear summary and testing notes.
-
-## Repository Context
-
-- [`context.md`](context.md) - shared project and AI handoff context
-- [`brand/identity.md`](brand/identity.md) - brand system
-- [`AGENTS.md`](AGENTS.md) - repository-specific instructions
-- [GitHub repository](https://github.com/amalendu315/aurakode-business-solutions)
+**AuraKode Business Solutions**  
+Siliguri, West Bengal, India  
+Brand Identity · Digital Experiences · Business Systems · Growth
