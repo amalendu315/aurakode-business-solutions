@@ -8,9 +8,9 @@ const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono", displ
 
 export const metadata: Metadata = {
   title: "AuraKode | Brand, Digital & Growth Studio in Siliguri",
-  description: "Build the business they remember. AuraKode connects brand identity, digital experiences, business systems, and growth for ambitious businesses in Siliguri and beyond.",
+  description: "AuraKode designs brand identities, websites, and business systems that make every customer interaction clearer. Based in Siliguri, working with businesses everywhere.",
   keywords: ["AuraKode Business Solutions", "Siliguri web design", "Siliguri branding agency", "Google Ads Siliguri", "SEO Siliguri", "business systems"],
-  icons: { icon: "/favicon.ico" },
+  icons: { icon: [{ url: "/icon.svg", type: "image/svg+xml" }, { url: "/favicon.ico", sizes: "any" }] },
   openGraph: { title: "AuraKode — Build the business they remember", description: "Brand identity, digital experiences, business systems, and growth from Siliguri, West Bengal.", type: "website", locale: "en_IN" },
   twitter: { card: "summary_large_image", title: "AuraKode — Build the business they remember", description: "Brand, digital experiences, and growth that work together." },
   robots: { index: true, follow: true },

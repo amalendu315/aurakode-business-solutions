@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 128" role="img" aria-label="AuraKode Business Solutions">
+  <g fill="none" stroke-width="10" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M12 101 40 27l28 74M26 74h28" stroke="#F0FAFB"/>
+    <path d="M81 27v74m1-37 33-37M82 64l34 37" stroke="#73E7F5"/>
+  </g>
+  <text x="149" y="73" fill="#F0FAFB" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="800" letter-spacing="-3">AuraKode</text>
+  <text x="152" y="103" fill="#AFCBD4" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" letter-spacing="4">BUSINESS SOLUTIONS</text>
+</svg>
