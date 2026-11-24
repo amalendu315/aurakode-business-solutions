@@ -1,7 +1,7 @@
 <div align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="public/brand/aurakode-lockup.svg">
-    <img src="public/brand/aurakode-lockup-ink.svg" alt="AuraKode Business Solutions" width="340">
+    <img src="public/brand/aurakode-lockup.svg" alt="AuraKode Business Solutions" width="340">
   </picture>
 
   <h1>Build the business they remember.</h1>
