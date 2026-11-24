@@ -7,11 +7,12 @@ const body = Inter({ subsets: ["latin"], variable: "--font-body", display: "swap
 const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap" });
 
 export const metadata: Metadata = {
-  title: "AuraKode Business Solutions | Branding, Websites & Growth in Siliguri",
-  description: "AuraKode Business Solutions helps ambitious businesses in Siliguri build a distinct brand, connected digital systems, and visibility through websites, SEO, Google Ads, and social media.",
+  title: "AuraKode | Brand, Digital & Growth Studio in Siliguri",
+  description: "Build the business they remember. AuraKode connects brand identity, digital experiences, business systems, and growth for ambitious businesses in Siliguri and beyond.",
   keywords: ["AuraKode Business Solutions", "Siliguri web design", "Siliguri branding agency", "Google Ads Siliguri", "SEO Siliguri", "business systems"],
   icons: { icon: "/favicon.ico" },
-  openGraph: { title: "AuraKode Business Solutions — Make your brand work harder", description: "Brand identity, business systems, websites and growth marketing from Siliguri, West Bengal.", type: "website", locale: "en_IN" },
+  openGraph: { title: "AuraKode — Build the business they remember", description: "Brand identity, digital experiences, business systems, and growth from Siliguri, West Bengal.", type: "website", locale: "en_IN" },
+  twitter: { card: "summary_large_image", title: "AuraKode — Build the business they remember", description: "Brand, digital experiences, and growth that work together." },
   robots: { index: true, follow: true },
 };
 
