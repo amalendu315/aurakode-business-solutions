@@ -948,8 +948,29 @@
 .ah-contact-form h3 {
   font-size: clamp(2.2rem, 3vw, 3.2rem);
   line-height: 1.08;
-  margin: 25px 0 32px;
+  margin: 25px 0 14px;
 }
+.ah-form-intro { color: #526873; font-size: 14px; margin-bottom: 28px !important; }
+.ah-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.ah-contact-form label > span { color: #0b83ae; }
+.ah-contact-form label small { float: right; color: #7a8c94; font-size: 11px; font-weight: 500; }
+.ah-service-picker { border: 0; padding: 0; margin: 0 0 22px; }
+.ah-service-picker legend { font-size: 13px; font-weight: 750; margin-bottom: 11px; }
+.ah-service-picker > small { display: block; margin-top: 9px; color: #6b7c84; font-size: 11px; }
+.ah-service-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.ah-service-options button {
+  min-height: 38px;
+  padding: 8px 12px;
+  background: #fff;
+  color: #21414e;
+  border: 1px solid #a9bcc2;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 700;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.ah-service-options button:hover,
+.ah-service-options button[aria-pressed="true"] { background: #102b3b; color: #fff; border-color: #102b3b; }
 .ah-contact-form label {
   display: block;
   font-size: 13px;
@@ -992,6 +1013,28 @@
   width: 100%;
   margin-top: 4px;
 }
+.ah-contact-form .ah-button:disabled { opacity: .65; cursor: wait; }
+.ah-form-honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.ah-form-alternative { text-align: center; color: #526873; font-size: 12px; margin-top: 12px !important; }
+.ah-form-alternative a { color: #0b6e91; text-decoration: underline; text-underline-offset: 3px; }
+.ah-enquiry-toast {
+  position: fixed;
+  z-index: 160;
+  right: 24px;
+  bottom: 24px;
+  display: grid;
+  gap: 3px;
+  width: min(350px, calc(100vw - 32px));
+  padding: 17px 20px;
+  border-left: 4px solid #73e7f5;
+  border-radius: 10px;
+  background: #102b3b;
+  color: #fff;
+  box-shadow: 0 14px 44px #001b2a55;
+  font-size: 13px;
+}
+.ah-enquiry-toast strong { font-size: 15px; }
+.ah-enquiry-toast span { color: #d9ebef; }
 .ah-form-note {
   font-size: 12px;
   color: #657780;
@@ -3707,4 +3750,263 @@
     color: #1e3324;
     font-size: 11px;
   }
+}
+
+/* Three authored hero frames, with direct controls at every viewport. */
+.ah-hero-scene .ah-hero-frame {
+  animation: none;
+  opacity: 0;
+  transform: scale(1.08);
+  transition: opacity 1.1s ease, transform 7s ease;
+  pointer-events: none;
+}
+.ah-hero-scene .ah-hero-frame.is-active {
+  opacity: 1;
+  transform: scale(1.01);
+}
+.ah-hero-copy { animation: ah-copy-enter .7s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes ah-copy-enter {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.ah-hero-art-note {
+  min-width: 152px;
+  gap: 5px;
+}
+.ah-hero-art-note button {
+  appearance: none;
+  display: block;
+  width: 100%;
+  padding: 9px 0;
+  border: 0;
+  background: transparent;
+  color: #b3d0d9;
+  text-align: right;
+  font: 800 10px var(--font-mono);
+  letter-spacing: .12em;
+  transition: color .25s;
+}
+.ah-hero-art-note button:hover,
+.ah-hero-art-note button.is-active { color: #f2feff; }
+.ah-hero-art-note button span { display: block; padding: 0 0 8px; border: 0; }
+.ah-hero-art-note button i {
+  display: block;
+  width: 100%;
+  height: 2px;
+  overflow: hidden;
+  background: #a5d5e65e;
+}
+.ah-hero-art-note button i:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #7deaf5;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.ah-hero-art-note button.is-active i:after { animation: ah-hero-timer 5.5s linear forwards; }
+@keyframes ah-hero-timer { to { transform: scaleX(1); } }
+.ah-app-nav { display: none; }
+
+/* Tablet: a framed cinematic scene, persistent editorial split, and side-rail case study. */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .ah-hero { height: 820px; min-height: 820px; }
+  .ah-hero-scene {
+    inset: 130px 4vw 115px auto;
+    width: 55%;
+    border: 1px solid #8ad8e44d;
+    border-radius: 25px;
+    box-shadow: 0 30px 80px #0008;
+  }
+  .ah-hero-scene img { object-position: 66% center; }
+  .ah-hero:before {
+    z-index: 1;
+    background: linear-gradient(90deg,#07101c 0%,#07101ced 24%,#07101c8c 53%,#07101c22 100%);
+  }
+  .ah-hero-inner {
+    display: grid;
+    grid-template-columns: minmax(0,1fr) minmax(130px,.3fr);
+    align-items: center;
+    padding-top: 95px;
+  }
+  .ah-hero-copy { max-width: 560px; }
+  .ah-hero h1 { font-size: clamp(3.65rem,7vw,6rem); }
+  .ah-hero-art-note { align-self: end; margin: 0 0 62px; }
+  .ah-service { grid-template-columns: 43% 57%; }
+  .ah-service-visual { min-height: 650px; }
+  .ah-service-content { min-height: 650px; padding: 30px; }
+  .ah-service-content h3 { font-size: clamp(2.3rem,3.8vw,3.5rem); }
+  .ah-entry-card { grid-template-columns: 40% 60%; }
+  .ah-entry-image { min-height: 390px; }
+  .ah-entry-body { min-height: 390px; }
+  .ah-entry-bottom { flex-direction: column; align-items: flex-start; }
+}
+@media (min-width: 601px) and (max-width: 800px) {
+  .ah-demo-shell { grid-template-columns: 165px 1fr; }
+  .ah-demo-rail { border-right: 1px solid #618a9b75; border-bottom: 0; }
+  .ah-demo-tabs { grid-template-columns: 1fr; margin-top: 24px; }
+  .ah-demo-tabs button { justify-content: flex-start; padding: 16px 12px; }
+  .ah-demo-stage { padding: 16px; }
+  .ah-demo-art { height: 400px; }
+  .ah-entry-card h3 { margin-top: 18px; }
+}
+
+/* Phone: a compact app shell, swipeable journey cards, and a thumb-zone dock. */
+@media (max-width: 600px) {
+  .agency-home { padding-bottom: calc(88px + env(safe-area-inset-bottom)); }
+  .ah-header { background: #0a1723f2; }
+  .ah-menu-toggle,
+  .ah-mobile-menu { display: none; }
+  .ah-mobile-menu {
+    position: fixed;
+    top: 68px;
+    left: 12px;
+    right: 12px;
+    max-height: calc(100dvh - 166px);
+    overflow-y: auto;
+    border: 1px solid #9bd9e044;
+    border-radius: 0 0 18px 18px;
+    box-shadow: 0 25px 55px #0008;
+  }
+  .ah-hero {
+    height: auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+    background: #edf1ef;
+    color: #0c1a25;
+  }
+  .ah-hero:before { display: none; }
+  .ah-hero-inner {
+    order: 1;
+    position: relative;
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    align-items: stretch;
+    width: calc(100% - 32px);
+    padding: 106px 0 0;
+    margin: 0 auto;
+  }
+  .ah-kicker { color: #477386; }
+  .ah-kicker-line { background: #8eabb4; }
+  .ah-hero h1 {
+    color: #0c1a25;
+    font-size: clamp(3.3rem,11.4vw,5rem);
+    line-height: .99;
+    margin: 22px 0 17px;
+    text-shadow: none;
+  }
+  .ah-hero h1 em { background: none; color: #0b83ae; }
+  .ah-hero-copy > p { color: #425763; font-size: 15px; }
+  .ah-hero-actions { margin-top: 20px; }
+  .ah-hero .ah-text-link { display: none; }
+  .ah-hero-art-note {
+    align-self: stretch;
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 7px;
+    margin: 21px 0 14px;
+    text-align: left;
+  }
+  .ah-hero-art-note button {
+    min-height: 50px;
+    padding: 10px 9px 8px;
+    border: 1px solid #bcd2d6;
+    border-radius: 11px;
+    background: #dfe9e9;
+    color: #3f6371;
+    text-align: left;
+    font-size: 8px;
+    letter-spacing: .04em;
+  }
+  .ah-hero-art-note button.is-active { background: #102b3b; color: #f4fcfe; border-color: #102b3b; }
+  .ah-hero-art-note button:hover { color: #0b83ae; }
+  .ah-hero-art-note button.is-active:hover { color: #fff; }
+  .ah-hero-art-note button i { background: #9fb9c0; }
+  .ah-hero-scene {
+    order: 2;
+    position: relative;
+    inset: auto;
+    width: calc(100% - 32px);
+    height: clamp(280px,76vw,360px);
+    margin: 0 auto;
+    overflow: hidden;
+    border: 1px solid #7296a2;
+    border-radius: 22px;
+    box-shadow: 0 22px 42px #1b36472d;
+  }
+  .ah-hero-scene img { object-position: 68% center; }
+  .ah-hero-foot {
+    order: 3;
+    width: calc(100% - 32px);
+    min-height: 57px;
+    color: #436574;
+    border-top: 0;
+    justify-content: flex-start;
+  }
+  .ah-statement { padding-top: 70px; }
+  .ah-journey {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    border: 0;
+    padding: 3px 0 16px;
+    scrollbar-width: thin;
+  }
+  .ah-journey-step,
+  .ah-journey-step:first-child,
+  .ah-journey-step:nth-child(3) {
+    flex: 0 0 82%;
+    min-height: 185px;
+    padding: 21px;
+    border: 1px solid #cad8da;
+    border-radius: 16px;
+    background: #fff;
+    scroll-snap-align: start;
+  }
+  .ah-service,
+  .ah-entry-card,
+  .ah-questions-flow > div,
+  .ah-contact-form { border-radius: 18px; overflow: hidden; }
+  .ah-enquiry-toast { bottom: calc(104px + env(safe-area-inset-bottom)); right: 16px; }
+  .ah-form-grid { grid-template-columns: 1fr; gap: 0; }
+  .ah-service-visual { min-height: 300px; }
+  .ah-entry-image { min-height: 220px; }
+  .ah-app-nav {
+    position: fixed;
+    z-index: 130;
+    left: 11px;
+    right: 11px;
+    bottom: calc(9px + env(safe-area-inset-bottom));
+    display: grid;
+    grid-template-columns: repeat(5,minmax(0,1fr));
+    min-height: 68px;
+    padding: 6px;
+    border: 1px solid #8dbcc879;
+    border-radius: 21px;
+    background: #0c1d2aef;
+    box-shadow: 0 14px 35px #07131d8c;
+    backdrop-filter: blur(18px);
+  }
+  .ah-app-nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    border-radius: 15px;
+    color: #b2cbd4;
+    font-size: 10px;
+    font-weight: 750;
+  }
+  .ah-app-nav a[aria-current="page"] { background: #173c4b; color: #8decf6; }
+  .ah-app-nav a:focus-visible { outline-offset: -3px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ah-hero-scene .ah-hero-frame { transition: none; transform: none; }
+  .ah-hero-art-note button.is-active i:after { animation: none; transform: scaleX(1); }
 }

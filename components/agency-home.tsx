@@ -7,11 +7,60 @@ import {
   ArrowDown,
   ArrowUpRight,
   ChevronDown,
+  Clapperboard,
+  Compass,
+  House,
+  LayoutGrid,
   Menu,
   MessageCircle,
   X,
 } from "lucide-react";
 import { whatsappUrl } from "@/lib/whatsapp";
+import { LeadCapture } from "@/components/sections/lead-capture";
+
+const heroScenes = [
+  {
+    number: "01",
+    label: "Idea",
+    image: "/ui-visuals/hero-idea.jpg",
+    alt: "A luminous idea begins to form as a sculptural silver ribbon",
+    caption: "THE FIRST SPARK",
+    headline: ["Start with", "an idea worth", "building."],
+    description: "The strongest work begins with a clear reason to exist. We help you find the opportunity, audience, and message that give the idea direction.",
+    primary: { label: "Find my starting point", href: "#work-with-us" },
+    secondary: { label: "How we begin", href: "#process" },
+  },
+  {
+    number: "02",
+    label: "Identity",
+    image: "/ui-visuals/hero-identity.jpg",
+    alt: "Glass and metal forms assemble into a distinctive visual identity",
+    caption: "A FORM PEOPLE REMEMBER",
+    headline: ["Make the idea", "impossible to", "confuse."],
+    description: "Turn that direction into a name, voice, and visual identity people recognize wherever they meet your business.",
+    primary: { label: "Explore brand work", href: "#identity" },
+    secondary: { label: "Discuss my brand", href: "#contact" },
+  },
+  {
+    number: "03",
+    label: "System",
+    image: "/ui-visuals/hero-architecture.jpg",
+    alt: "Sculptural architecture connected by a luminous system",
+    caption: "BUILT TO WORK TOGETHER",
+    headline: ["Make every", "interaction", "work."],
+    description: "Connect the website customers use with the tools your team relies on, so the whole experience delivers on your promise.",
+    primary: { label: "Explore digital systems", href: "#digital" },
+    secondary: { label: "Plan a project", href: "#contact" },
+  },
+];
+
+const appNavigation = [
+  { id: "top", label: "Home", Icon: House },
+  { id: "services", label: "Services", Icon: LayoutGrid },
+  { id: "studio-demo", label: "Studio", Icon: Clapperboard },
+  { id: "work-with-us", label: "Start", Icon: Compass },
+  { id: "contact", label: "Talk", Icon: MessageCircle },
+];
 
 const services = [
   {
@@ -531,89 +580,38 @@ function StudioDemo() {
   );
 }
 
-function ContactComposer() {
-  const [name, setName] = useState("");
-  const [service, setService] = useState("");
-  const [message, setMessage] = useState("");
-  const [error, setError] = useState("");
-  const submit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (!name.trim() || !message.trim()) {
-      setError("Add your name and a short project note to continue.");
-      return;
-    }
-    setError("");
-    const inquiry = [
-      `Hi AuraKode, I'd like to discuss a project.`,
-      "",
-      `Name: ${name.trim()}`,
-      `Service: ${service || "Not sure yet"}`,
-      `Project: ${message.trim()}`,
-    ].join("\n");
-    window.open(whatsappUrl(inquiry), "_blank", "noopener,noreferrer");
-  };
-  return (
-    <form className="ah-contact-form" onSubmit={submit} noValidate>
-      <div className="ah-form-head">
-        <span>START A CONVERSATION</span>
-        <span>DIRECT ENQUIRY</span>
-      </div>
-      <h3>Tell us what you&apos;re building.</h3>
-      <label>
-        Your name
-        <input
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          name="name"
-          autoComplete="name"
-          placeholder="What should we call you?"
-          required
-        />
-      </label>
-      <label>
-        What do you need help with?
-        <select
-          value={service}
-          onChange={(e) => setService(e.target.value)}
-          name="service"
-        >
-          <option value="">Choose a starting point</option>
-          <option>Brand & identity</option>
-          <option>Website or web app</option>
-          <option>Business systems</option>
-          <option>Visibility & growth</option>
-          <option>A bit of everything</option>
-        </select>
-      </label>
-      <label>
-        Your project in a few words
-        <textarea
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          name="message"
-          rows={4}
-          placeholder="The goal, challenge, or idea on your mind"
-          required
-        />
-      </label>
-      {error && (
-        <p className="ah-form-error" role="alert">
-          {error}
-        </p>
-      )}
-      <button type="submit" className="ah-button ah-button-dark">
-        Continue to WhatsApp <MessageCircle size={18} />
-      </button>
-      <p className="ah-form-note">
-        We&apos;ll prepare your message. You can review it before sending in
-        WhatsApp.
-      </p>
-    </form>
-  );
-}
-
 export function AgencyHome() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [heroIndex, setHeroIndex] = useState(0);
+  const [activeSection, setActiveSection] = useState("top");
+  const reducedMotion = useReducedMotion();
+  useEffect(() => {
+    if (reducedMotion) return;
+    const timer = window.setInterval(
+      () => setHeroIndex((current) => (current + 1) % heroScenes.length),
+      5500,
+    );
+    return () => window.clearInterval(timer);
+  }, [heroIndex, reducedMotion]);
+  useEffect(() => {
+    const updateSection = () => {
+      let current = "top";
+      for (const item of appNavigation) {
+        const section = document.getElementById(item.id);
+        if (section && section.getBoundingClientRect().top <= window.innerHeight * 0.42) {
+          current = item.id;
+        }
+      }
+      setActiveSection(current);
+    };
+    updateSection();
+    window.addEventListener("scroll", updateSection, { passive: true });
+    window.addEventListener("resize", updateSection);
+    return () => {
+      window.removeEventListener("scroll", updateSection);
+      window.removeEventListener("resize", updateSection);
+    };
+  }, []);
   useEffect(() => {
     if (!menuOpen) return;
     const close = (event: KeyboardEvent) => {
@@ -690,50 +688,63 @@ export function AgencyHome() {
       </header>
       <main id="main-content">
         <section className="ah-hero" id="top">
-          <div className="ah-hero-scene">
-            <Image
-              src="/ui-visuals/hero-architecture.jpg"
-              alt="Sculptural glass and metal architecture connected by a luminous line"
-              fill
-              priority
-              sizes="100vw"
-            />
+          <div className="ah-hero-scene" aria-live="off">
+            {heroScenes.map((scene, index) => (
+              <Image
+                key={scene.number}
+                src={scene.image}
+                alt={scene.alt}
+                aria-hidden={heroIndex !== index}
+                fill
+                priority={index === 0}
+                loading={index === 0 ? undefined : "eager"}
+                sizes="100vw"
+                className={`ah-hero-frame ${heroIndex === index ? "is-active" : ""}`}
+              />
+            ))}
           </div>
           <div className="ah-hero-inner">
-            <div className="ah-hero-copy">
+            <div className="ah-hero-copy" key={heroScenes[heroIndex].number} aria-live="off">
               <div className="ah-kicker">
-                <span>BRAND, WEB &amp; BUSINESS SYSTEMS</span>
+                <span>{heroScenes[heroIndex].number} / {heroScenes[heroIndex].label.toUpperCase()}</span>
                 <span className="ah-kicker-line" />
-                <span>SILIGURI, INDIA</span>
+                <span>BRAND, WEB &amp; BUSINESS SYSTEMS</span>
               </div>
               <h1>
-                Build the
+                {heroScenes[heroIndex].headline[0]}
                 <br />
-                business they
+                {heroScenes[heroIndex].headline[1]}
                 <br />
-                <em>remember.</em>
+                <em>{heroScenes[heroIndex].headline[2]}</em>
               </h1>
-              <p>
-                We design the identity people see, the website they use, and the
-                systems that help you deliver on the promise.
-              </p>
+              <p>{heroScenes[heroIndex].description}</p>
               <div className="ah-hero-actions">
-                <a className="ah-button ah-button-cyan" href="#contact">
-                  Tell us what you&apos;re building <MessageCircle size={18} />
+                <a className="ah-button ah-button-cyan" href={heroScenes[heroIndex].primary.href}>
+                  {heroScenes[heroIndex].primary.label} <ArrowUpRight size={18} />
                 </a>
-                <a className="ah-text-link" href="#services">
-                  See what we do
+                <a className="ah-text-link" href={heroScenes[heroIndex].secondary.href}>
+                  {heroScenes[heroIndex].secondary.label}
                 </a>
               </div>
             </div>
-            <div className="ah-hero-art-note" aria-hidden="true">
-              <span>01 / IDEA</span>
-              <span>02 / IDENTITY</span>
-              <span>03 / SYSTEM</span>
+            <div className="ah-hero-art-note" role="group" aria-label="Hero scenes">
+              {heroScenes.map((scene, index) => (
+                <button
+                  key={scene.number}
+                  type="button"
+                  className={heroIndex === index ? "is-active" : ""}
+                  aria-label={`Show ${scene.label} scene`}
+                  aria-pressed={heroIndex === index}
+                  onClick={() => setHeroIndex(index)}
+                >
+                  <span>{scene.number} / {scene.label.toUpperCase()}</span>
+                  <i aria-hidden="true" />
+                </button>
+              ))}
             </div>
           </div>
           <div className="ah-hero-foot">
-            <span>DESIGNED WITH INTENT · BUILT TO WORK</span>
+            <span>{heroScenes[heroIndex].caption}</span>
             <span>
               EXPLORE THE STUDIO <ArrowDown size={14} />
             </span>
@@ -1013,7 +1024,7 @@ export function AgencyHome() {
         <section className="ah-contact" id="contact">
           <div className="ah-wrap ah-contact-grid">
             <Reveal className="ah-contact-copy">
-              <span className="ah-section-label">LET'S TALK</span>
+              <span className="ah-section-label">LET&apos;S TALK</span>
               <h2>
                 Tell us the
                 <br />
@@ -1042,11 +1053,24 @@ export function AgencyHome() {
               </div>
             </Reveal>
             <Reveal delay={0.12}>
-              <ContactComposer />
+              <LeadCapture />
             </Reveal>
           </div>
         </section>
       </main>
+      <nav className="ah-app-nav" aria-label="Quick navigation">
+        {appNavigation.map(({ id, label, Icon }) => (
+          <a
+            key={id}
+            href={`#${id}`}
+            aria-current={activeSection === id ? "page" : undefined}
+            onClick={closeMenu}
+          >
+            <Icon size={20} strokeWidth={activeSection === id ? 2.3 : 1.8} />
+            <span>{label}</span>
+          </a>
+        ))}
+      </nav>
       <footer className="ah-footer">
         <div className="ah-wrap">
           <div className="ah-footer-top">
