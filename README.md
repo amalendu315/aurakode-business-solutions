@@ -1,257 +1,195 @@
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="./public/brand/aurakode-lockup.svg">
-    <img src="./public/brand/aurakode-lockup.svg" alt="AuraKode Business Solutions" width="540">
+    <source media="(prefers-color-scheme: dark)" srcset="./public/brand/aurakode-lockup.svg">
+    <img src="./public/brand/aurakode-lockup-ink.svg" alt="AuraKode Business Solutions" width="360">
   </picture>
 
   <h3>Brand Identity · Digital Experiences · Business Systems · Growth</h3>
 
-  <p>
-    <strong>Build the business they remember.</strong><br>
-    We connect what your business says, what customers experience, and how your team delivers.
-  </p>
-
-  <p>
-    <img alt="Based in Siliguri" src="https://img.shields.io/badge/BASED%20IN-SILIGURI%2C%20INDIA-0B83AE?style=for-the-badge">
-    <img alt="Brand" src="https://img.shields.io/badge/BRAND-IDENTITY-73E7F5?style=for-the-badge&labelColor=0A1724">
-    <img alt="Digital" src="https://img.shields.io/badge/DIGITAL-EXPERIENCES-F3F3EE?style=for-the-badge&labelColor=0A1724">
-  </p>
+  <p><strong>Build the business they remember.</strong></p>
+  <p>We connect what your business says, what customers experience, and how your team delivers.</p>
+  <p><strong>SILIGURI, INDIA &nbsp;·&nbsp; WORKING EVERYWHERE</strong></p>
 </div>
-
----
 
 <p align="center">
-  <img src="./public/ui-visuals/hero-architecture.jpg" alt="A connected architectural digital ecosystem" width="100%">
+  <img src="./public/ui-visuals/hero-architecture.jpg" alt="A connected digital ecosystem, brought together through thoughtful design" width="100%">
 </p>
 
-## One Studio. One Connected Promise.
+## A more connected way to grow
 
-AuraKode Business Solutions is a brand, digital, and growth studio based in **Siliguri, West Bengal**. We help ambitious businesses turn an idea into an identity, an experience, and a system that works in the real world.
+AuraKode Business Solutions is a brand, digital, and growth studio based in **Siliguri, West Bengal**. We help ambitious businesses turn ideas into clear identities, useful digital experiences, and systems that work in the real world.
 
-Our approach connects the full customer journey:
+Because a brand is more than a logo, a website is more than a page, and growth is more than traffic. The strongest business experiences connect all three.
 
-> **What people see** → **How they understand it** → **What they do next** → **How the business follows through**
-
-The result is not a collection of unrelated assets. It is a clearer brand, a more useful website, and a stronger route from attention to enquiry.
+> **What people see** → **How they understand it** → **What they do next** → **How your team follows through**
 
 ---
 
-## What We Build
+## What we do
 
-<table>
-  <tr>
-    <td width="50%" valign="top">
-      <img src="./public/illustrations/identity.png" alt="Brand identity illustration" width="100%">
-      <h3>Brand & Identity</h3>
-      <p>Make the business easier to understand and impossible to confuse.</p>
-      <ul>
-        <li>Positioning and key messaging</li>
-        <li>Logo and visual identity systems</li>
-        <li>Brand guidelines and templates</li>
-        <li>Campaign art direction</li>
-        <li>Brand applications</li>
-      </ul>
-    </td>
-    <td width="50%" valign="top">
-      <img src="./public/illustrations/systems.png" alt="Business systems illustration" width="100%">
-      <h3>Web & Business Systems</h3>
-      <p>Make every interaction useful, visible, and easier to complete.</p>
-      <ul>
-        <li>Marketing websites and landing pages</li>
-        <li>Web applications and dashboards</li>
-        <li>Custom business tools</li>
-        <li>Forms and enquiry workflows</li>
-        <li>Automations and integrations</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <img src="./public/illustrations/growth.png" alt="Growth illustration" width="100%">
-      <h3>Visibility & Growth</h3>
-      <p>Turn attention into a relevant, measurable next step.</p>
-      <ul>
-        <li>Search engine optimisation</li>
-        <li>Google Ads and paid campaigns</li>
-        <li>Social media campaigns</li>
-        <li>Landing page strategy</li>
-        <li>Campaign measurement</li>
-      </ul>
-    </td>
-    <td width="50%" valign="top">
-      <img src="./public/ui-visuals/motive-studio.jpg" alt="A cohesive brand and digital concept" width="100%">
-      <h3>Connected Brand Experiences</h3>
-      <p>Carry one clear promise across every customer touchpoint.</p>
-      <ul>
-        <li>Content and campaign direction</li>
-        <li>Website and social alignment</li>
-        <li>Brand-to-customer journeys</li>
-        <li>Launch programmes</li>
-        <li>Ongoing improvement</li>
-      </ul>
-    </td>
-  </tr>
-</table>
+<p align="center">
+  <img src="./public/illustrations/identity.png" alt="AuraKode brand identity capability" width="190">
+  &nbsp;&nbsp;&nbsp;
+  <img src="./public/illustrations/systems.png" alt="AuraKode digital systems capability" width="190">
+  &nbsp;&nbsp;&nbsp;
+  <img src="./public/illustrations/growth.png" alt="AuraKode growth capability" width="190">
+</p>
+
+### Brand & identity
+
+Make the business easier to understand, recognise, and remember.
+
+- Positioning and key messaging
+- Logo and visual identity systems
+- Brand guidelines, templates, and applications
+- Campaign art direction
+
+### Web & digital experiences
+
+Give customers a clear, useful route from discovery to action.
+
+- Marketing websites and landing pages
+- Web applications and dashboards
+- Responsive customer journeys
+- Conversion-focused content and structure
+
+### Business systems
+
+Help teams reduce manual work and keep information connected.
+
+- Custom business tools
+- Enquiry and lead workflows
+- Forms, dashboards, and reporting
+- Integrations and automation
+
+### Visibility & growth
+
+Connect the right audience to a relevant next step.
+
+- Search engine optimisation
+- Google Ads and paid campaigns
+- Social media campaigns
+- Landing pages and measurement
 
 ---
 
-## One Promise, Across Every Touchpoint
+## One promise, across every touchpoint
 
-<table>
-  <tr>
-    <td align="center" width="33%">
-      <img src="./public/ui-visuals/identity-worktable.jpg" alt="Brand identity materials" width="100%">
-      <h3>Identity</h3>
-      <p><strong>Give the idea a voice.</strong><br>Positioning, visual identity, and the rules that keep a business recognisable.</p>
-    </td>
-    <td align="center" width="33%">
-      <img src="./public/ui-visuals/digital-systems.jpg" alt="Connected digital experiences" width="100%">
-      <h3>Experience</h3>
-      <p><strong>Make the next step effortless.</strong><br>Websites and tools that answer real questions and guide useful action.</p>
-    </td>
-    <td align="center" width="33%">
-      <img src="./public/ui-visuals/growth-path.jpg" alt="Measured path to growth" width="100%">
-      <h3>Momentum</h3>
-      <p><strong>Carry the story into the world.</strong><br>Focused campaigns that connect discovery to a relevant destination.</p>
-    </td>
-  </tr>
-</table>
+<p align="center">
+  <img src="./public/ui-visuals/identity-worktable.jpg" alt="Brand identity in development" width="280">
+  &nbsp;
+  <img src="./public/ui-visuals/digital-systems.jpg" alt="A connected digital experience" width="280">
+  &nbsp;
+  <img src="./public/ui-visuals/growth-path.jpg" alt="A measured path to growth" width="280">
+</p>
+
+**Identity — Give the idea a voice.** Positioning, visual identity, and practical rules that help a business show up consistently.
+
+**Experience — Make the next step effortless.** Websites and tools that answer real questions and help people take useful action.
+
+**Momentum — Carry the story into the world.** Focused campaigns that connect discovery to a relevant destination and measurable next step.
 
 ---
 
-## How a Project Moves
+## A clear process. Work you can see.
 
-<table>
-  <tr>
-    <th>01 / Understand</th>
-    <th>02 / Clarify</th>
-    <th>03 / Create</th>
-    <th>04 / Refine</th>
-    <th>05 / Deliver</th>
-  </tr>
-  <tr>
-    <td>Business, audience, existing work, and the source of friction</td>
-    <td>The opportunity, message, priority, and desired outcome</td>
-    <td>Scoped design and development with visible checkpoints</td>
-    <td>Structured reviews that improve the work and keep decisions clear</td>
-    <td>Production-ready assets, handover, and a practical next plan</td>
-  </tr>
-</table>
+**01 — Understand**
 
-The exact shape of every engagement varies. Work can begin with a focused project or become part of a longer programme across brand, web, systems, and growth.
+Get to know the business, its audience, existing work, and the friction behind the brief.
 
----
+**02 — Clarify**
 
-## Find the Right Starting Point
+Agree on the opportunity, priorities, outcome, scope, and measures of success.
 
-<table>
-  <tr>
-    <td width="33%" valign="top">
-      <img src="./public/ui-visuals/starting-new.jpg" alt="Starting a new business" width="100%">
-      <h3>Starting Something New</h3>
-      <p>You need a name people understand, an identity they recognise, and a website ready for launch.</p>
-      <p><strong>Brand direction · Website · Launch assets</strong></p>
-    </td>
-    <td width="33%" valign="top">
-      <img src="./public/ui-visuals/stronger-presence.jpg" alt="Refreshing an existing business presence" width="100%">
-      <h3>Building a Stronger Presence</h3>
-      <p>The business has grown, but the brand or website still tells an older story.</p>
-      <p><strong>Positioning · Redesign · Conversion path</strong></p>
-    </td>
-    <td width="33%" valign="top">
-      <img src="./public/ui-visuals/connected-operations.jpg" alt="Connected business operations" width="100%">
-      <h3>Growing Beyond Manual Work</h3>
-      <p>Enquiries, updates, and reporting are spread across too many places.</p>
-      <p><strong>Digital products · Systems · Growth</strong></p>
-    </td>
-  </tr>
-</table>
+**03 — Create**
+
+Build the identity, experience, system, or campaign through visible checkpoints.
+
+**04 — Refine**
+
+Use structured reviews to make thoughtful decisions and improve the work.
+
+**05 — Deliver**
+
+Hand over usable work, clear documentation, and practical next steps.
+
+Every engagement is shaped around the actual need. Start with one focused project or connect several parts into a larger programme.
 
 ---
 
-## What We Think about When We Begin
+## Where to begin
 
-### "Our brand feels inconsistent."
+<p align="center">
+  <img src="./public/ui-visuals/starting-new.jpg" alt="A new business preparing to launch" width="280">
+  &nbsp;
+  <img src="./public/ui-visuals/stronger-presence.jpg" alt="An established business ready for a stronger presence" width="280">
+  &nbsp;
+  <img src="./public/ui-visuals/connected-operations.jpg" alt="Connected operations supporting a growing business" width="280">
+</p>
 
-We compare the website, social presence, proposals, and customer language. The gap may be in the message, visual system, or how the team applies it.
+### Starting something new
 
-### "We need a new website."
+You need a name people understand, an identity they recognise, and a website ready for launch.
 
-Before rebuilding, we establish what the visitor needs to understand, what must change, and where the current journey loses attention.
+**A useful starting scope:** Brand direction · Website · Launch assets
 
-### "We are getting enquiries, but the process feels scattered."
+### Building a stronger presence
 
-We follow the enquiry from first click to team follow-through, then improve the information, handoff, and tools around it.
+The business has grown, but its brand or website still tells an older story. Find what to keep and what to change.
 
-### "We are generating traffic, but nothing is changing."
+**A useful starting scope:** Positioning · Redesign · Conversion path
 
-We connect the campaign promise to the page, offer, next action, and measurement, rather than treating traffic as the outcome.
+### Growing beyond manual work
 
----
+Enquiries, updates, or reporting are spread across too many places. Give the team a clearer way to move work forward.
 
-## The AuraKode Difference
-
-| Find the connected solution | Make decisions visible | Build for real use | Keep the message specific |
-| --- | --- | --- | --- |
-| Brand, website, operations, and growth work together instead of becoming separate projects. | Work moves through clear checkpoints, with reviewable outputs and agreed next steps. | Every identity, interface, workflow, and campaign is designed around real use. | We use direct language and name the actual deliverable or decision. |
-
----
-
-## Brand Principles
-
-<div align="center">
-  <img src="./public/brand/aurakode-lockup.svg" alt="AuraKode ink lockup" width="420">
-</div>
-
-The AuraKode mark joins an angular **A** and **K** into one forward-moving symbol. It is open, recognisable at small sizes, and free of stock technology imagery.
-
-<table>
-  <tr>
-    <td align="center"><strong>Night</strong><br><code>#0A1724</code></td>
-    <td align="center"><strong>Paper</strong><br><code>#F3F3EE</code></td>
-    <td align="center"><strong>Ice</strong><br><code>#F0FAFB</code></td>
-    <td align="center"><strong>Signal</strong><br><code>#73E7F5</code></td>
-    <td align="center"><strong>Deep Blue</strong><br><code>#0B83AE</code></td>
-  </tr>
-</table>
-
-- **Plus Jakarta Sans** for headings and the wordmark
-- **Inter** for reading text
-- **JetBrains Mono** for compact annotations
-- Direct, practical language instead of vague transformation claims
-
-The complete rules and assets are documented in [`brand/identity.md`](./brand/identity.md).
+**A useful starting scope:** Digital products · Systems · Growth
 
 ---
 
-## Working With AuraKode
+## Thoughtful work starts with the right question
 
-AuraKode works with:
+**“Our brand feels inconsistent.”**
 
-- Founders launching or repositioning a business
-- Teams whose brand or website no longer reflects the offer
-- Organisations growing beyond manual work
-- Businesses building clearer search, advertising, or social campaigns
-- Local and remote clients across India
+We look across the website, social presence, proposals, and customer language to find whether the gap is in the message, visual system, or how the team applies it.
 
-Based in **Siliguri, West Bengal**, and working with ambitious businesses everywhere.
+**“We need a new website.”**
 
-<div align="center">
+First, we find out what visitors need to understand, what is getting in their way, and what the new experience should help them do.
 
-### Start with the problem. Leave with a clearer next step.
+**“Our process feels scattered.”**
 
-Useful context includes the business, audience, current challenge, existing materials, and when the change matters.
+We trace the handoffs and information behind the work, then find ways to make the process clearer for the team and its customers.
 
-</div>
+**“We are generating traffic, but nothing is changing.”**
+
+We connect the campaign promise to the page, offer, next action, and measurement—because traffic alone is not the outcome.
+
+---
+
+## What makes the work AuraKode
+
+- **Connected thinking** — Brand, website, operations, and growth considered as parts of one experience.
+- **Visible decisions** — Clear checkpoints, reviewable work, and agreed next steps.
+- **Made for real use** — Practical identities, interfaces, workflows, and campaigns.
+- **Specific communication** — Direct language about what is being made and why it matters.
+
+---
+
+## A distinct identity
+
+The AuraKode mark brings an angular **A** and **K** together in a forward-moving symbol. Our visual language pairs deep, confident tones with a clear signal accent and typography designed to stay readable.
+
+- **Night** `#0A1724` · **Paper** `#F3F3EE` · **Ice** `#F0FAFB`
+- **Signal** `#73E7F5` · **Deep Blue** `#0B83AE`
+- **Plus Jakarta Sans** for headings · **Inter** for reading · **JetBrains Mono** for compact annotations
 
 ---
 
 <div align="center">
-  <img src="./public/brand/aurakode-mark.svg" alt="AuraKode monogram" width="96">
-
-  <h2>Build the business they remember.</h2>
-
-  **Brand Identity · Digital Experiences · Business Systems · Growth**
-
-  <p><strong>AuraKode Business Solutions</strong><br>Siliguri, West Bengal, India</p>
+  <h2>Have a business challenge in mind?</h2>
+  <p>You do not need a perfect brief. Tell us what you do, what feels stuck, and what you want to make possible.</p>
+  <p><a href="https://wa.me/916378281761?text=Hi%20AuraKode%2C%20I%27d%20like%20to%20discuss%20a%20project."><strong>START A CONVERSATION ON WHATSAPP ↗</strong></a></p>
+  <p><strong>AuraKode Business Solutions</strong><br>Siliguri, West Bengal, India<br>Brand Identity · Digital Experiences · Business Systems · Growth</p>
+  <img src="./public/brand/aurakode-mark.svg" alt="AuraKode monogram" width="56">
 </div>
