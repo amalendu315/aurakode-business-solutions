@@ -1,6 +1,6 @@
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="./public/brand/aurakode-lockup-ink.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./public/brand/aurakode-lockup.svg">
     <img src="./public/brand/aurakode-lockup.svg" alt="AuraKode Business Solutions" width="540">
   </picture>
 
