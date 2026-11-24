@@ -200,7 +200,7 @@ We connect the campaign promise to the page, offer, next action, and measurement
 ## Brand Principles
 
 <div align="center">
-  <img src="./public/brand/aurakode-lockup-ink.svg" alt="AuraKode ink lockup" width="420">
+  <img src="./public/brand/aurakode-lockup.svg" alt="AuraKode ink lockup" width="420">
 </div>
 
 The AuraKode mark joins an angular **A** and **K** into one forward-moving symbol. It is open, recognisable at small sizes, and free of stock technology imagery.
@@ -247,7 +247,7 @@ Useful context includes the business, audience, current challenge, existing mate
 ---
 
 <div align="center">
-  <img src="./public/brand/aurakode-mark.svg" alt="AuraKode monogram" width="96">
+  <img src="./public/brand/aurakode-lockup.svg" alt="AuraKode monogram" width="96">
 
   <h2>Build the business they remember.</h2>
 
