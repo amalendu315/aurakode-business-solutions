@@ -247,7 +247,7 @@ Useful context includes the business, audience, current challenge, existing mate
 ---
 
 <div align="center">
-  <img src="./public/brand/aurakode-lockup.svg" alt="AuraKode monogram" width="96">
+  <img src="./public/brand/aurakode-mark.svg" alt="AuraKode monogram" width="96">
 
   <h2>Build the business they remember.</h2>
 
