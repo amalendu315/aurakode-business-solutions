@@ -5,5 +5,173 @@ import { LayoutDashboard, Smartphone, Layers3, Radio } from "lucide-react";
 export function CapabilitiesBento() {
   const [active, setActive] = useState<"admin" | "mobile">("admin");
   const [connected, setConnected] = useState(true);
-  return <section id="systems" className="section section-systems"><div className="section-heading"><span className="eyebrow">01 / CONNECTED BY DESIGN</span><h2>One system.<br/><em>Every screen.</em></h2><p>Your brand should feel consistent wherever a customer finds you. We design the identity, interface, and workflows as one connected experience.</p></div><div className="bento-grid"><article className="bento-card bento-feature"><div className="card-top"><span>THE INTERFACE</span><LayoutDashboard size={19}/></div><h3>Built around the way you work.</h3><p>Explore a sample dashboard and mobile view. One source of truth, shaped for every task.</p><div className="preview-tabs" role="tablist" aria-label="Sample interface view"><button type="button" role="tab" aria-selected={active==="admin"} onClick={()=>setActive("admin")}>Admin view</button><button type="button" role="tab" aria-selected={active==="mobile"} onClick={()=>setActive("mobile")}>Mobile view</button></div><div className={`bento-preview ${active}`} role="tabpanel"><div className="preview-top"><span>AK / OPERATIONS</span><span className="preview-status">● {connected ? "SYNCED" : "PAUSED"}</span></div>{active==="admin" ? <div className="admin-preview"><div><small>Overview</small><strong>Good morning, team.</strong><div className="preview-metrics"><span><b>12</b>Active projects</span><span><b>08</b>New inquiries</span></div></div><div className="bar-chart"><i/><i/><i/><i/><i/><i/><i/></div></div> : <div className="mobile-preview"><div className="mobile-greeting">Today&apos;s snapshot <strong>Everything in one place.</strong></div><div className="mobile-stat"><span>New inquiries</span><strong>08</strong></div><div className="mobile-stat"><span>Projects in motion</span><strong>12</strong></div></div>}</div><small className="demo-note">Illustrative interface concept</small></article><article className="bento-card bento-mini"><div className="card-top"><span>THE FOUNDATION</span><Layers3 size={19}/></div><div className="layer-graphic"><i/><i/><i/></div><h3>A brand with a backbone.</h3><p>Visual language, messaging, and digital tools work as a single system.</p></article><article className="bento-card bento-mini"><div className="card-top"><span>THE CONNECTION</span><Radio size={19}/></div><button type="button" className={`sync-switch ${connected ? "on" : ""}`} onClick={()=>setConnected(!connected)} aria-pressed={connected} aria-label="Toggle illustrative sync status"><span/></button><h3>Connected end to end.</h3><p>From first impression to daily operations, the experience stays in sync.</p><small className="demo-note">Try the sample sync control</small></article><article className="bento-card bento-wide"><div className="card-top"><span>THE EXPERIENCE</span><Smartphone size={19}/></div><div className="wide-card-content"><div><h3>Clarity for customers.<br/>Control for your team.</h3><p>Responsive websites and purposeful interfaces make every interaction feel effortless.</p></div><div className="wide-devices"><div className="wide-laptop"><span/><i/><i/></div><div className="wide-phone"><span/><i/><i/></div></div></div></article></div></section>;
+  return (
+    <section id="systems" className="section section-systems">
+      <div className="section-heading">
+        <span className="eyebrow">01 / CONNECTED BY DESIGN</span>
+        <h2>
+          One system.
+          <br />
+          <em>Every screen.</em>
+        </h2>
+        <p>
+          Your brand should feel consistent wherever a customer finds you. We
+          design the identity, interface, and workflows as one connected
+          experience.
+        </p>
+      </div>
+      <div className="bento-grid">
+        <article className="bento-card bento-feature">
+          <div className="card-top">
+            <span>THE INTERFACE</span>
+            <LayoutDashboard size={19} />
+          </div>
+          <h3>Built around the way you work.</h3>
+          <p>
+            Explore a sample dashboard and mobile view. One source of truth,
+            shaped for every task.
+          </p>
+          <div
+            className="preview-tabs"
+            role="tablist"
+            aria-label="Sample interface view"
+          >
+            <button
+              type="button"
+              role="tab"
+              aria-selected={active === "admin"}
+              onClick={() => setActive("admin")}
+            >
+              Admin view
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={active === "mobile"}
+              onClick={() => setActive("mobile")}
+            >
+              Mobile view
+            </button>
+          </div>
+          <div className={`bento-preview ${active}`} role="tabpanel">
+            <div className="preview-top">
+              <span>AK / OPERATIONS</span>
+              <span className="preview-status">
+                ● {connected ? "SYNCED" : "PAUSED"}
+              </span>
+            </div>
+            {active === "admin" ? (
+              <div className="admin-preview">
+                <div>
+                  <small>Overview</small>
+                  <strong>Good morning, team.</strong>
+                  <div className="preview-metrics">
+                    <span>
+                      <b>12</b>Active projects
+                    </span>
+                    <span>
+                      <b>08</b>New inquiries
+                    </span>
+                  </div>
+                </div>
+                <div className="bar-chart">
+                  <i />
+                  <i />
+                  <i />
+                  <i />
+                  <i />
+                  <i />
+                  <i />
+                </div>
+              </div>
+            ) : (
+              <div className="mobile-preview">
+                <div className="mobile-greeting">
+                  Today&apos;s snapshot{" "}
+                  <strong>Everything in one place.</strong>
+                </div>
+                <div className="mobile-stat">
+                  <span>New inquiries</span>
+                  <strong>08</strong>
+                </div>
+                <div className="mobile-stat">
+                  <span>Projects in motion</span>
+                  <strong>12</strong>
+                </div>
+              </div>
+            )}
+          </div>
+          <small className="demo-note">Illustrative interface concept</small>
+        </article>
+        <article className="bento-card bento-mini">
+          <div className="card-top">
+            <span>THE FOUNDATION</span>
+            <Layers3 size={19} />
+          </div>
+          <div className="layer-graphic">
+            <i />
+            <i />
+            <i />
+          </div>
+          <h3>A brand with a backbone.</h3>
+          <p>
+            Visual language, messaging, and digital tools work as a single
+            system.
+          </p>
+        </article>
+        <article className="bento-card bento-mini">
+          <div className="card-top">
+            <span>THE CONNECTION</span>
+            <Radio size={19} />
+          </div>
+          <button
+            type="button"
+            className={`sync-switch ${connected ? "on" : ""}`}
+            onClick={() => setConnected(!connected)}
+            aria-pressed={connected}
+            aria-label="Toggle illustrative sync status"
+          >
+            <span />
+          </button>
+          <h3>Connected end to end.</h3>
+          <p>
+            From first impression to daily operations, the experience stays in
+            sync.
+          </p>
+          <small className="demo-note">Try the sample sync control</small>
+        </article>
+        <article className="bento-card bento-wide">
+          <div className="card-top">
+            <span>THE EXPERIENCE</span>
+            <Smartphone size={19} />
+          </div>
+          <div className="wide-card-content">
+            <div>
+              <h3>
+                Clarity for customers.
+                <br />
+                Control for your team.
+              </h3>
+              <p>
+                Responsive websites and purposeful interfaces make every
+                interaction feel effortless.
+              </p>
+            </div>
+            <div className="wide-devices">
+              <div className="wide-laptop">
+                <span />
+                <i />
+                <i />
+              </div>
+              <div className="wide-phone">
+                <span />
+                <i />
+                <i />
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  );
 }
