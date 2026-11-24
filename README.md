@@ -1,7 +1,7 @@
 <div align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./public/brand/aurakode-lockup.svg">
-    <img src="./public/brand/aurakode-lockup-ink.svg" alt="AuraKode Business Solutions" width="360">
+    <img src="./public/brand/aurakode-lockup.svg" alt="AuraKode Business Solutions" width="360">
   </picture>
 
   <h3>Brand Identity · Digital Experiences · Business Systems · Growth</h3>
