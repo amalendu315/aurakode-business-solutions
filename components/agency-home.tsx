@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { motion, useReducedMotion } from "framer-motion";
+import Link from "next/link";
 import {
   ArrowDown,
   ArrowUpRight,
@@ -68,6 +68,7 @@ const services = [
   {
     number: "01",
     id: "identity",
+    href: "/services/branding-siliguri",
     eyebrow: "BRAND & IDENTITY",
     title: "Be impossible to confuse.",
     image: "/ui-visuals/identity-worktable.jpg",
@@ -90,6 +91,7 @@ const services = [
   {
     number: "02",
     id: "digital",
+    href: "/services/website-design-siliguri",
     eyebrow: "WEB & BUSINESS SYSTEMS",
     title: "Make every interaction work.",
     image: "/ui-visuals/digital-systems.jpg",
@@ -112,6 +114,7 @@ const services = [
   {
     number: "03",
     id: "growth",
+    href: "/services/seo-siliguri",
     eyebrow: "VISIBILITY & GROWTH",
     title: "Turn attention into momentum.",
     image: "/ui-visuals/growth-path.jpg",
@@ -345,29 +348,16 @@ function BrandMark({ className = "" }: { className?: string }) {
 function Reveal({
   children,
   className = "",
-  delay = 0,
 }: {
   children: React.ReactNode;
   className?: string;
   delay?: number;
 }) {
-  const reduced = useReducedMotion();
-  return (
-    <motion.div
-      className={className}
-      initial={reduced ? false : { opacity: 1, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.12 }}
-      transition={{ duration: 0.78, delay, ease: [0.16, 1, 0.3, 1] }}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className={className}>{children}</div>;
 }
 
 function StudioDemo() {
   const [active, setActive] = useState(0);
-  const reduced = useReducedMotion();
   const stage = studioStages[active];
   return (
     <section className="ah-demo" id="studio-demo">
@@ -448,15 +438,9 @@ function StudioDemo() {
             id="ah-demo-panel"
             aria-labelledby={`ah-demo-tab-${active}`}
           >
-            <motion.div
+            <div
               key={active}
               className={`ah-demo-art ah-demo-art-${active}`}
-              initial={reduced ? false : { opacity: 1, scale: 0.965, y: 12 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{
-                duration: reduced ? 0 : 0.5,
-                ease: [0.16, 1, 0.3, 1],
-              }}
             >
               {active === 0 && (
                 <div className="ah-concept-brand">
@@ -563,7 +547,7 @@ function StudioDemo() {
                   </div>
                 </div>
               )}
-            </motion.div>
+            </div>
             <div className="ah-demo-stage-caption">
               <div>
                 <span>
@@ -592,17 +576,16 @@ function StudioDemo() {
 export function AgencyHome() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [heroIndex, setHeroIndex] = useState(0);
-  const [heroPaused, setHeroPaused] = useState(false);
+  const [heroPaused, setHeroPaused] = useState(true);
   const [activeSection, setActiveSection] = useState("top");
-  const reducedMotion = useReducedMotion();
   useEffect(() => {
-    if (reducedMotion || heroPaused) return;
+    if (heroPaused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const timer = window.setInterval(
       () => setHeroIndex((current) => (current + 1) % heroScenes.length),
       5500,
     );
     return () => window.clearInterval(timer);
-  }, [heroIndex, heroPaused, reducedMotion]);
+  }, [heroIndex, heroPaused]);
   useEffect(() => {
     const updateSection = () => {
       let current = "top";
@@ -641,7 +624,6 @@ export function AgencyHome() {
           <a
             href="#top"
             className="ah-logo"
-            aria-label="AuraKode home"
             onClick={closeMenu}
           >
             <BrandMark className="ah-logo-mark" />
@@ -697,21 +679,17 @@ export function AgencyHome() {
         )}
       </header>
       <main id="main-content">
-        <section className="ah-hero" id="top" data-paused={heroPaused || reducedMotion ? "true" : "false"}>
+        <section className="ah-hero" id="top" data-paused={heroPaused ? "true" : "false"}>
           <div className="ah-hero-scene" aria-live="off">
-            {heroScenes.map((scene, index) => (
-              <Image
-                key={scene.number}
-                src={scene.image}
-                alt={scene.alt}
-                aria-hidden={heroIndex !== index}
-                fill
-                priority={index === 0}
-                loading={index === 0 ? undefined : "eager"}
-                sizes="(max-width: 600px) 100vw, (max-width: 1024px) 48vw, 100vw"
-                className={`ah-hero-frame ${heroIndex === index ? "is-active" : ""}`}
-              />
-            ))}
+            <Image
+              key={heroScenes[heroIndex].number}
+              src={heroScenes[heroIndex].image}
+              alt={heroScenes[heroIndex].alt}
+              fill
+              priority={heroIndex === 0}
+              sizes="(max-width: 600px) 100vw, (max-width: 1024px) 48vw, 100vw"
+              className="ah-hero-frame is-active"
+            />
           </div>
           <div className="ah-hero-inner">
             <div className="ah-hero-copy" key={heroScenes[heroIndex].number} aria-live="off">
@@ -743,7 +721,6 @@ export function AgencyHome() {
                   key={scene.number}
                   type="button"
                   className={heroIndex === index ? "is-active" : ""}
-                  aria-label={`Show ${scene.label} scene`}
                   aria-pressed={heroIndex === index}
                   onClick={() => {
                     setHeroIndex(index);
@@ -757,7 +734,6 @@ export function AgencyHome() {
               <button
                 type="button"
                 className="ah-hero-pause"
-                aria-label={heroPaused ? "Play hero scenes" : "Pause hero scenes"}
                 aria-pressed={heroPaused}
                 onClick={() => setHeroPaused((paused) => !paused)}
               >
@@ -822,7 +798,7 @@ export function AgencyHome() {
             <div className="ah-proof-live-grid">
               {liveProjects.map((project) => (
                 <Reveal key={project.name} className="ah-proof-live-card">
-                  <a href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${project.name} website`}>
+                  <a href={project.url} target="_blank" rel="noopener noreferrer">
                     <div className="ah-proof-live-image">
                       <Image src={project.image} alt={project.alt} fill sizes="(max-width: 800px) 100vw, 50vw" />
                       <span>LIVE WEBSITE</span>
@@ -950,6 +926,9 @@ export function AgencyHome() {
                       <span>WHAT YOU WALK AWAY WITH</span>
                       <strong>{service.outcome}</strong>
                     </div>
+                    <Link className="ah-service-detail-link" href={service.href}>
+                      Explore {service.eyebrow.toLowerCase()} in Siliguri
+                    </Link>
                   </div>
                 </Reveal>
               ))}
@@ -1009,7 +988,7 @@ export function AgencyHome() {
                         href={whatsappUrl(item.prompt)}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label={`Discuss ${item.title.toLowerCase()} on WhatsApp`}
+                        aria-label={`Start here: discuss ${item.title.toLowerCase()} on WhatsApp`}
                       >
                         Start here <ArrowUpRight size={18} />
                       </a>
@@ -1169,6 +1148,9 @@ export function AgencyHome() {
                 <a href="#work-with-us">Start here</a>
                 <a href="#process">Process</a>
                 <a href="#questions">FAQs</a>
+                <Link href="/services/website-design-siliguri">Website design in Siliguri</Link>
+                <Link href="/services/branding-siliguri">Brand identity in Siliguri</Link>
+                <Link href="/services/seo-siliguri">SEO in Siliguri</Link>
               </div>
               <div>
                 <strong>CONNECT</strong>

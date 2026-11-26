@@ -16,3 +16,35 @@ h1, h2, h3, p { margin-top: 0; }
 h1, h2, h3 { font-family: var(--font-display), sans-serif; font-weight: inherit; }
 ::selection { background: #73e7f5; color: #0b1220; }
 :focus-visible { outline: 2px solid #0b83ae; outline-offset: 4px; }
+.site-whatsapp {
+  position: fixed;
+  z-index: 180;
+  right: 22px;
+  bottom: calc(22px + env(safe-area-inset-bottom));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 56px;
+  padding: 0 18px;
+  border: 1px solid #b7efd0;
+  border-radius: 100px;
+  color: #073c20;
+  background: #dcfbe9;
+  box-shadow: 0 10px 32px #061d1470;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1;
+  transition: transform .2s, background .2s;
+}
+.site-whatsapp:hover { transform: translateY(-3px); background: #bdf5d4; }
+.site-whatsapp:focus-visible { outline: 3px solid #0b83ae; outline-offset: 3px; }
+@media (max-width: 600px) {
+  .site-whatsapp {
+    right: 16px;
+    bottom: calc(92px + env(safe-area-inset-bottom));
+    min-height: 52px;
+    padding: 0 15px;
+    font-size: 13px;
+  }
+}

@@ -15,7 +15,7 @@
 
 A customer might meet a business through an ad, visit its website, send an enquiry, and then speak with its team. Each step should feel like part of the same promise. AuraKode brings the identity, digital experience, and supporting systems into one considered direction.
 
-This repository contains our responsive business website. It links to two live client sites, presents the Shift.Store ecommerce project in testing, shows our approach through an explicitly fictional concept project, answers common project questions, and gives visitors a direct path to start a conversation.
+This repository contains our responsive business website. It links to two live client sites, presents the Shift.Store ecommerce project in testing, shows our approach through an explicitly fictional concept project, answers common project questions, and gives visitors a direct path to start a conversation. Three focused service pages explain website design, branding, and SEO in Siliguri.
 
 ## What the site covers
 
@@ -30,7 +30,7 @@ This repository contains our responsive business website. It links to two live c
 | Starting points | Three ways a project can begin: launch, stronger presence, or clearer operations |
 | Process & FAQs | Review checkpoints, scope, content, timing, handover, and working remotely |
 
-The hero follows an **Idea → Identity → System** sequence. Each scene has its own image, message, and next step. Visitors can select a scene directly or pause the automatic sequence; choosing a scene pauses it for reading. The sequence does not advance when a device requests reduced motion. The page uses a cinematic layout on desktop and phones, a framed editorial layout on tablet, and a bottom navigation dock on phones.
+The hero follows an **Idea → Identity → System** sequence. Each scene has its own image, message, and next step. The sequence starts paused for reading; visitors can select a scene or choose to play it. The sequence does not advance when a device requests reduced motion. The page uses a cinematic layout on desktop and phones, a framed editorial layout on tablet, and a bottom navigation dock on phones. A WhatsApp button stays available throughout the site.
 
 ## Run locally
 
@@ -60,10 +60,14 @@ app/
   globals.css              Document reset and shared defaults
   agency.css               Active homepage and responsive visual system
   opengraph-image.tsx      Generated social preview image
+  robots.ts                Robots rules and sitemap reference
+  sitemap.ts               Canonical URLs for indexable pages
+  services/[slug]/          Static service pages and shared styles
 components/
   agency-home.tsx          Page content, hero sequence, navigation, and interactions
   sections/lead-capture.tsx  Enquiry form and WhatsApp handoff
 lib/
+  service-pages.ts         Service page content and FAQs
   whatsapp.ts             WhatsApp number and prefilled-message URL
 public/
   brand/                  Logo lockups and marks
@@ -73,18 +77,19 @@ public/
 
 ### Where to make changes
 
-- **Business copy and service details:** `components/agency-home.tsx`
+- **Homepage copy and service summary:** `components/agency-home.tsx`
+- **Focused service pages:** `lib/service-pages.ts`
 - **Hero scenes and their order:** `heroScenes` in `components/agency-home.tsx`, with images in `public/ui-visuals/`
 - **Phone, tablet, and desktop styling:** `app/agency.css`
 - **Enquiry form fields and choices:** `components/sections/lead-capture.tsx`
 - **Logo files:** `public/brand/`; the inline mark used in the page is the `BrandMark` component
 - **Contact number and default message:** `lib/whatsapp.ts`
-- **Page title, description, and social metadata:** `app/layout.tsx` and `app/opengraph-image.tsx`
+- **Page title, description, and social metadata:** `app/layout.tsx`, `app/services/[slug]/page.tsx`, and `app/opengraph-image.tsx`
 
 ## Design and interaction notes
 
 - Images are served through `next/image` with responsive sizes. The primary hero frame is prioritized; supporting imagery is deferred or sized for its section.
-- The hero controls are buttons with pressed states. The automatic sequence can be paused and stops for visitors who request reduced motion.
+- The hero controls are buttons with pressed states. The sequence starts paused and stays paused on devices that request reduced motion.
 - The page has a skip link, semantic sections, keyboard-accessible navigation, and accessible FAQ controls.
 - The contact form asks for a name, phone number, and project note, with optional business name, email, and service choices. It validates the details, then opens WhatsApp with a prefilled message. The visitor reviews it and taps **Send** there. The site does not claim the message was delivered before that step.
 - Enquiries are not stored in this repository. This handoff needs no Meta API credentials.
@@ -92,12 +97,16 @@ public/
 - The Shift.Store summary describes work supplied by the business owner and clearly says the project is in testing. Its system map is explicitly illustrative; no performance figures or interface screenshots are claimed.
 - The Motive screens and photographs illustrate a design direction. They are labeled as a concept rather than presented as completed client work.
 
-## Before publishing
+## Launch on aurakode.in
 
-1. Confirm the public WhatsApp number in `lib/whatsapp.ts` and all business copy. Submit a test enquiry and check the prefilled message before sending.
-2. Add the final production domain to metadata configuration so social image URLs resolve to the live site. The build otherwise falls back to localhost for those URLs.
-3. Confirm the Shift.Store name and details can be published. Add approved screenshots, a live link, and factual outcomes when supplied.
-4. Run `npm run build` and `npm run lint`, then review the hero controls, mobile dock, enquiry form, and key sections on real devices.
+1. Deploy the production build to a host that supports Next.js, connect `aurakode.in`, and enable HTTPS. Redirect `www.aurakode.in` to `https://aurakode.in` so the canonical URL matches the live site. DNS and redirects must be configured with the chosen host and registrar.
+2. Confirm the public WhatsApp number in `lib/whatsapp.ts`, the business name, service area, and all business copy. Submit a test enquiry and review the prefilled message before sending. Do not list an unstaffed address or invented opening hours.
+3. Create or claim the Google Business Profile using the same business name, phone number and service area. Once the site is live, add `https://aurakode.in/` as the profile's website URL. Complete the profile with accurate categories, services, photos and hours.
+4. Verify `aurakode.in` as a Domain property in Google Search Console, preferably using the DNS record it provides. Submit `https://aurakode.in/sitemap.xml`, and inspect the homepage and three service URLs after deployment.
+5. Confirm the Shift.Store name and details can be published. Add approved screenshots, a live link, and factual outcomes when supplied.
+6. Run `npm run build` and `npm run lint`, then review the hero controls, mobile dock, WhatsApp links, service pages, and enquiry form on real devices.
+
+The canonical domain, sitemap, robots file and structured data are already configured for `https://aurakode.in`. They help search engines understand and crawl the site; they do not guarantee rankings. The local production Lighthouse audit reached 100 for Performance, Accessibility, Best Practices and SEO on the homepage and website-design service page. Scores can differ after deployment or with real-user conditions.
 
 ## Contact
 
