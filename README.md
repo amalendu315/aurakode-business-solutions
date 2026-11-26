@@ -15,7 +15,7 @@
 
 A customer might meet a business through an ad, visit its website, send an enquiry, and then speak with its team. Each step should feel like part of the same promise. AuraKode brings the identity, digital experience, and supporting systems into one considered direction.
 
-This repository contains our responsive business website. It links to two live client sites, presents the Shift.Store ecommerce project in testing, shows our approach through an explicitly fictional concept project, answers common project questions, and gives visitors a direct path to start a conversation. Three focused service pages explain website design, branding, and SEO in Siliguri.
+This repository contains our responsive business website. It links to three public client sites, shows our approach through an explicitly fictional concept project, answers common project questions, and gives visitors a direct path to start a conversation. Three focused service pages explain website design, branding, and SEO in Siliguri.
 
 ## What the site covers
 
@@ -24,8 +24,8 @@ This repository contains our responsive business website. It links to two live c
 | Brand & identity | Positioning, messaging, visual identity, guidelines, and campaign direction |
 | Web & business systems | Websites, web apps, dashboards, forms, workflows, and integrations |
 | Visibility & growth | Search, paid campaigns, landing pages, and measurement |
-| Live client work | ConEquiparts and Online Parts: public parts websites with product discovery, enquiry journeys, and admin panels |
-| Shift.Store | A client project in testing, spanning an ad landing journey, Cashfree and cash on delivery checkout, order tracking, and an admin panel; the system map is illustrative |
+| Live client work | [ConEquiparts](https://conequiparts.com/) and [Online Parts](https://onlineparts.shop/): public parts websites; [Shift.Store](https://shiftstore.in/): a public home and lifestyle storefront with shopping and order tracking |
+| Shift.Store feature | The storefront, payment choice, order tracking, and admin panel are explained in an illustrative system map; online payments on the public store are currently labelled test mode |
 | Motive concept | How one brief could become an identity, website, and campaign; **Motive is fictional, not a client project** |
 | Starting points | Three ways a project can begin: launch, stronger presence, or clearer operations |
 | Process & FAQs | Review checkpoints, scope, content, timing, handover, and working remotely |
@@ -93,8 +93,8 @@ public/
 - The page has a skip link, semantic sections, keyboard-accessible navigation, and accessible FAQ controls.
 - The contact form asks for a name, phone number, and project note, with optional business name, email, and service choices. It validates the details, then opens WhatsApp with a prefilled message. The visitor reviews it and taps **Send** there. The site does not claim the message was delivered before that step.
 - Enquiries are not stored in this repository. This handoff needs no Meta API credentials.
-- ConEquiparts and Online Parts link to their live HTTPS sites. The local project images are hero assets served by those websites; the cards are not interface screenshots.
-- The Shift.Store summary describes work supplied by the business owner and clearly says the project is in testing. Its system map is explicitly illustrative; no performance figures or interface screenshots are claimed.
+- ConEquiparts, Online Parts, and Shift.Store link to their public HTTPS sites. The local project images are assets served by those websites; the cards are not interface screenshots.
+- The Shift.Store summary describes work supplied by the business owner and notes that online payments are labelled test mode on the public store. Its system map is explicitly illustrative; no performance figures or interface screenshots are claimed.
 - The Motive screens and photographs illustrate a design direction. They are labeled as a concept rather than presented as completed client work.
 
 ## Launch on aurakode.in
@@ -103,7 +103,7 @@ public/
 2. Confirm the public WhatsApp number in `lib/whatsapp.ts`, the business name, service area, and all business copy. Submit a test enquiry and review the prefilled message before sending. Do not list an unstaffed address or invented opening hours.
 3. Create or claim the Google Business Profile using the same business name, phone number and service area. Once the site is live, add `https://aurakode.in/` as the profile's website URL. Complete the profile with accurate categories, services, photos and hours.
 4. Verify `aurakode.in` as a Domain property in Google Search Console, preferably using the DNS record it provides. Submit `https://aurakode.in/sitemap.xml`, and inspect the homepage and three service URLs after deployment.
-5. Confirm the Shift.Store name and details can be published. Add approved screenshots, a live link, and factual outcomes when supplied.
+5. Review the three portfolio links and descriptions when client sites change. Add verified outcomes only when available.
 6. Run `npm run build` and `npm run lint`, then review the hero controls, mobile dock, WhatsApp links, service pages, and enquiry form on real devices.
 
 The canonical domain, sitemap, robots file and structured data are already configured for `https://aurakode.in`. They help search engines understand and crawl the site; they do not guarantee rankings. The local production Lighthouse audit reached 100 for Performance, Accessibility, Best Practices and SEO on the homepage and website-design service page. Scores can differ after deployment or with real-user conditions.

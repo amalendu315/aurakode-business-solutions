@@ -159,6 +159,17 @@ const liveProjects = [
       "The live site combines a parts finder, product browsing, and a direct enquiry route for buyers. A full admin panel supports the business behind the public experience.",
     capabilities: ["Parts finder", "Product browsing", "Enquiry flow", "Admin panel"],
   },
+  {
+    name: "Shift.Store",
+    url: "https://shiftstore.in/",
+    image: "/client-work/shiftstore-interior.webp",
+    alt: "Home interior image featured on the Shift.Store website",
+    category: "HOME & LIVING / ECOMMERCE",
+    title: "A storefront for everyday finds.",
+    description:
+      "A home and lifestyle store with product discovery, search, a cart, and order tracking. Its public storefront brings the shopping journey and store operations together.",
+    capabilities: ["Product discovery", "Search & cart", "Order tracking", "Admin panel"],
+  },
 ];
 
 const faqs = [
@@ -793,14 +804,14 @@ export function AgencyHome() {
             <Reveal className="ah-proof-live-head">
               <span className="ah-section-label">LIVE CLIENT WEBSITES</span>
               <h2>Work you can <em>open and explore.</em></h2>
-              <p>These are public websites we built for two earthmoving parts businesses. Each connects product discovery with a sales enquiry path and an admin panel behind the scenes.</p>
+              <p>Explore three public client websites: two parts businesses built around product enquiries, and a home and lifestyle storefront built around shopping and order tracking.</p>
             </Reveal>
             <div className="ah-proof-live-grid">
               {liveProjects.map((project) => (
                 <Reveal key={project.name} className="ah-proof-live-card">
                   <a href={project.url} target="_blank" rel="noopener noreferrer">
                     <div className="ah-proof-live-image">
-                      <Image src={project.image} alt={project.alt} fill sizes="(max-width: 800px) 100vw, 50vw" />
+                      <Image src={project.image} alt={project.alt} fill sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 33vw" />
                       <span>LIVE WEBSITE</span>
                       <strong>{project.name}</strong>
                     </div>
@@ -820,13 +831,13 @@ export function AgencyHome() {
           </div>
           <div className="ah-wrap ah-proof-grid">
             <Reveal className="ah-proof-copy">
-              <span className="ah-section-label">CLIENT PROJECT · IN TESTING</span>
+              <span className="ah-section-label">CLIENT PROJECT · PUBLIC STOREFRONT</span>
               <h2>From an ad to <em>a completed order.</em></h2>
               <p>
-                Shift.Store is a home decor ecommerce project currently in client
-                testing. We built it for the full buying journey: a customer can arrive from a campaign,
-                find a product, choose Cashfree online payment or cash on
-                delivery, and use their order ID to track what happens next.
+                Shift.Store is a public home and lifestyle storefront. We built it for the buying
+                journey: a customer can arrive from a campaign, find a product, choose a payment
+                option, and use their order ID to track what happens next. Online payments are
+                currently shown in test mode on the store.
               </p>
               <p>
                 Behind that journey, we also built an admin panel to manage
@@ -834,19 +845,19 @@ export function AgencyHome() {
                 tracking, and day-to-day operations in one system.
               </p>
               <div className="ah-proof-actions">
-                <a href="#digital">Explore web and systems</a>
+                <a href="https://shiftstore.in/" target="_blank" rel="noopener noreferrer">Visit Shift.Store <ArrowUpRight size={16} aria-hidden="true" /></a>
                 <a href="#studio-demo">See our design concept</a>
               </div>
             </Reveal>
             <Reveal className="ah-proof-diagram" delay={0.08}>
               <div className="ah-proof-diagram-head">
-                <span>SHIFT.STORE / IN TESTING</span>
+                <span>SHIFT.STORE / PUBLIC STOREFRONT</span>
                 <span>ILLUSTRATIVE SYSTEM MAP</span>
               </div>
               <div className="ah-proof-flow">
                 <span>Campaign visit</span>
                 <span>Product choice</span>
-                <span>Cashfree or COD</span>
+                <span>Payment choice</span>
                 <span>Order ID</span>
                 <span>Order tracking</span>
               </div>
