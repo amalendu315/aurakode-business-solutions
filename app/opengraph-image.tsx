@@ -128,7 +128,7 @@ export default function OpenGraphImage() {
         }}
       >
         <span>DESIGNED WITH INTENT · BUILT TO WORK</span>
-        <span>SILIGURI, INDIA</span>
+        <span>BASED IN INDIA · OPEN TO GLOBAL PROJECTS</span>
       </div>
     </div>,
     size,

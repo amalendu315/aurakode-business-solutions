@@ -1,5 +1,5 @@
-import { AgencyHome } from "@/components/agency-home";
-import "./agency.css";
+import { AgencyHomeCompact } from "@/components/agency-home-compact";
+import "./compact.css";
 
 export default function Home() {
   const business = {
@@ -10,7 +10,7 @@ export default function Home() {
     url: "https://aurakode.in/",
     logo: "https://aurakode.in/brand/aurakode-lockup.svg",
     image: "https://aurakode.in/opengraph-image",
-    description: "Brand identity, website design, business systems and search visibility for businesses in Siliguri and beyond.",
+    description: "Brand identity, website design, business systems and search visibility for businesses across India, with international projects welcome by enquiry.",
     telephone: "+91 63782 81761",
     address: {
       "@type": "PostalAddress",
@@ -18,10 +18,7 @@ export default function Home() {
       addressRegion: "West Bengal",
       addressCountry: "IN",
     },
-    areaServed: [
-      { "@type": "City", name: "Siliguri" },
-      { "@type": "Country", name: "India" },
-    ],
+    areaServed: { "@type": "Country", name: "India" },
     contactPoint: { "@type": "ContactPoint", telephone: "+91 63782 81761", contactType: "sales", availableLanguage: ["English", "Hindi"] },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
@@ -35,6 +32,6 @@ export default function Home() {
   };
   return <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(business).replace(/</g, "\\u003c") }} />
-    <AgencyHome />
+    <AgencyHomeCompact />
   </>;
 }

@@ -6,7 +6,7 @@
 
   <h1>Build the business they remember.</h1>
   <p>Brand identity · Websites · Business systems · Visibility & growth</p>
-  <p>AuraKode Business Solutions is based in Siliguri, West Bengal, and works with businesses wherever they are.</p>
+  <p>AuraKode Business Solutions is based in Siliguri, serves businesses across India, and welcomes international projects.</p>
 </div>
 
 ![AuraKode's connected glass and metal visual system](public/ui-visuals/hero-architecture.jpg)
@@ -15,7 +15,7 @@
 
 A customer might meet a business through an ad, visit its website, send an enquiry, and then speak with its team. Each step should feel like part of the same promise. AuraKode brings the identity, digital experience, and supporting systems into one considered direction.
 
-This repository contains our responsive business website. It links to three public client sites, shows our approach through an explicitly fictional concept project, answers common project questions, and gives visitors a direct path to start a conversation. Three focused service pages explain website design, branding, and SEO in Siliguri.
+This repository contains AuraKode's responsive business website. The concise homepage introduces the services, links to three project case studies, explains the process, and gives visitors direct contact options. A shared header and footer connect the homepage, project pages, three focused service pages, About, Contact, Privacy Policy, and Terms & Conditions.
 
 ## What the site covers
 
@@ -24,13 +24,12 @@ This repository contains our responsive business website. It links to three publ
 | Brand & identity | Positioning, messaging, visual identity, guidelines, and campaign direction |
 | Web & business systems | Websites, web apps, dashboards, forms, workflows, and integrations |
 | Visibility & growth | Search, paid campaigns, landing pages, and measurement |
-| Live client work | [ConEquiparts](https://conequiparts.com/) and [Online Parts](https://onlineparts.shop/): public parts websites; [Shift.Store](https://shiftstore.in/): a public home and lifestyle storefront with shopping and order tracking |
-| Shift.Store feature | The storefront, payment choice, order tracking, and admin panel are explained in an illustrative system map; online payments on the public store are currently labelled test mode |
-| Motive concept | How one brief could become an identity, website, and campaign; **Motive is fictional, not a client project** |
-| Starting points | Three ways a project can begin: launch, stronger presence, or clearer operations |
-| Process & FAQs | Review checkpoints, scope, content, timing, handover, and working remotely |
+| Selected work | Case studies for [ConEquiparts](https://aurakode.in/projects/conequiparts) and [Online Parts](https://aurakode.in/projects/online-parts), credited as freelance projects at Techno Imagine; [Shift.Store](https://aurakode.in/projects/shift-store), an AuraKode home and lifestyle storefront |
+| Process & FAQs | Discovering the need, agreeing on scope, building in reviewable stages, pricing, and working remotely |
+| About & Contact | AuraKode's approach, direct WhatsApp and email links, and a map of its Siliguri base with India-wide service clearly stated |
+| Privacy & terms | How website enquiries and third-party services are handled, and the basic terms for using the site |
 
-The hero follows an **Idea → Identity → System** sequence. Each scene has its own image, message, and next step. The sequence starts paused for reading; visitors can select a scene or choose to play it. The sequence does not advance when a device requests reduced motion. The page uses a cinematic layout on desktop and phones, a framed editorial layout on tablet, and a bottom navigation dock on phones. A WhatsApp button stays available throughout the site.
+The homepage uses a glass visual system and measured scroll reveals. Project and service cards sit in compact rows on phones to reduce vertical scrolling. Motion respects reduced-motion preferences. A WhatsApp button stays available throughout the site.
 
 ## Run locally
 
@@ -58,55 +57,62 @@ app/
   page.tsx                 Active homepage route
   layout.tsx               Fonts, metadata, and document shell
   globals.css              Document reset and shared defaults
-  agency.css               Active homepage and responsive visual system
+  compact.css              Homepage layout, glass surfaces, and motion
+  site-shell.css           Shared navigation and footer
+  info.css                 About, Contact, Privacy, and Terms styles
   opengraph-image.tsx      Generated social preview image
   robots.ts                Robots rules and sitemap reference
   sitemap.ts               Canonical URLs for indexable pages
   services/[slug]/          Static service pages and shared styles
+  projects/[slug]/          Static project case studies and shared styles
+  about/ contact/           Company information and contact routes
+  privacy-policy/           Privacy policy route
+  terms-and-conditions/     Website terms route
 components/
-  agency-home.tsx          Page content, hero sequence, navigation, and interactions
-  sections/lead-capture.tsx  Enquiry form and WhatsApp handoff
+  agency-home-compact.tsx  Homepage content, navigation, and interactions
+  site-shell.tsx           Shared header, mobile menu, and footer
 lib/
   service-pages.ts         Service page content and FAQs
+  projects.ts              Project descriptions, credits, and live links
   whatsapp.ts             WhatsApp number and prefilled-message URL
 public/
   brand/                  Logo lockups and marks
   client-work/            Hero imagery from the linked live client websites
-  ui-visuals/             Hero, service, concept, and starting-point imagery
+  ui-visuals/             Hero and service imagery
 ```
 
 ### Where to make changes
 
-- **Homepage copy and service summary:** `components/agency-home.tsx`
+- **Homepage copy and project credits:** `components/agency-home-compact.tsx`
+- **Project details and credits:** `lib/projects.ts`
 - **Focused service pages:** `lib/service-pages.ts`
-- **Hero scenes and their order:** `heroScenes` in `components/agency-home.tsx`, with images in `public/ui-visuals/`
-- **Phone, tablet, and desktop styling:** `app/agency.css`
-- **Enquiry form fields and choices:** `components/sections/lead-capture.tsx`
-- **Logo files:** `public/brand/`; the inline mark used in the page is the `BrandMark` component
+- **Shared navigation and footer:** `components/site-shell.tsx` and `app/site-shell.css`
+- **Phone, tablet, and desktop styling:** `app/compact.css`, `app/info.css`, and `app/services/[slug]/service.css`
+- **Logo files:** `public/brand/`; the homepage and service pages use `aurakode-lockup.svg`
 - **Contact number and default message:** `lib/whatsapp.ts`
 - **Page title, description, and social metadata:** `app/layout.tsx`, `app/services/[slug]/page.tsx`, and `app/opengraph-image.tsx`
 
 ## Design and interaction notes
 
-- Images are served through `next/image` with responsive sizes. The primary hero frame is prioritized; supporting imagery is deferred or sized for its section.
-- The hero controls are buttons with pressed states. The sequence starts paused and stays paused on devices that request reduced motion.
-- The page has a skip link, semantic sections, keyboard-accessible navigation, and accessible FAQ controls.
-- The contact form asks for a name, phone number, and project note, with optional business name, email, and service choices. It validates the details, then opens WhatsApp with a prefilled message. The visitor reviews it and taps **Send** there. The site does not claim the message was delivered before that step.
-- Enquiries are not stored in this repository. This handoff needs no Meta API credentials.
-- ConEquiparts, Online Parts, and Shift.Store link to their public HTTPS sites. The local project images are assets served by those websites; the cards are not interface screenshots.
-- The Shift.Store summary describes work supplied by the business owner and notes that online payments are labelled test mode on the public store. Its system map is explicitly illustrative; no performance figures or interface screenshots are claimed.
-- The Motive screens and photographs illustrate a design direction. They are labeled as a concept rather than presented as completed client work.
+- Images are served through `next/image` with responsive sizes. The hero image is prioritized; project imagery loads as needed.
+- Glass surfaces, gentle image motion, and scroll reveals support the content. Reduced-motion preferences disable decorative animation and reveal transitions.
+- The page has a skip link, semantic sections, keyboard-accessible navigation, and accessible FAQ controls. The same navigation appears on every route.
+- Contact links open WhatsApp with a prefilled greeting or a new email to `admin@aurakode.in`. Enquiries are not stored in this repository.
+- Homepage project cards open local case studies, which link to the public HTTPS websites. ConEquiparts and Online Parts are clearly credited as freelance projects at Techno Imagine. The local hero images came from those sites; they are not interface screenshots.
+- The Shift.Store project card describes the public storefront without claiming live payment processing or performance results.
+- The Contact page displays Siliguri as the base city while stating that AuraKode serves all of India and welcomes international projects. Its map does not claim a customer-facing office or street address.
+- The Privacy Policy describes direct enquiries, hosting, Google Tag Manager and the embedded map. Review it when the configured tags or business practices change.
 
 ## Launch on aurakode.in
 
 1. Deploy the production build to a host that supports Next.js, connect `aurakode.in`, and enable HTTPS. Redirect `www.aurakode.in` to `https://aurakode.in` so the canonical URL matches the live site. DNS and redirects must be configured with the chosen host and registrar.
-2. Confirm the public WhatsApp number in `lib/whatsapp.ts`, the business name, service area, and all business copy. Submit a test enquiry and review the prefilled message before sending. Do not list an unstaffed address or invented opening hours.
-3. Create or claim the Google Business Profile using the same business name, phone number and service area. Once the site is live, add `https://aurakode.in/` as the profile's website URL. Complete the profile with accurate categories, services, photos and hours.
+2. Confirm the public WhatsApp number in `lib/whatsapp.ts`, the `admin@aurakode.in` inbox, the business name, operating base, and all business copy. Do not list an unstaffed address or invented opening hours.
+3. Create or claim the Google Business Profile using the same business name and phone number, and configure only the service areas you actually support under Google's current rules. Once the site is live, add `https://aurakode.in/` as the profile's website URL. Complete the profile with accurate categories, services, photos and hours.
 4. Verify `aurakode.in` as a Domain property in Google Search Console, preferably using the DNS record it provides. Submit `https://aurakode.in/sitemap.xml`, and inspect the homepage and three service URLs after deployment.
 5. Review the three portfolio links and descriptions when client sites change. Add verified outcomes only when available.
-6. Run `npm run build` and `npm run lint`, then review the hero controls, mobile dock, WhatsApp links, service pages, and enquiry form on real devices.
+6. Run `npm run build` and `npm run lint`, then review the shared mobile navigation, project rows, WhatsApp link, service pages, contact map, and legal pages on real devices.
 
-The canonical domain, sitemap, robots file and structured data are already configured for `https://aurakode.in`. They help search engines understand and crawl the site; they do not guarantee rankings. The local production Lighthouse audit reached 100 for Performance, Accessibility, Best Practices and SEO on the homepage and website-design service page. Scores can differ after deployment or with real-user conditions.
+The canonical domain, sitemap, robots file and structured data are configured for `https://aurakode.in`. They help search engines understand and crawl the site; they do not guarantee rankings. Run a fresh Lighthouse audit after deployment because scores can change with the design, hosting and real-user conditions.
 
 ## Contact
 

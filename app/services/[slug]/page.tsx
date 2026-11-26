@@ -40,27 +40,18 @@ export default async function ServiceDetail({ params }: Props) {
     description: service.description,
     url: `https://aurakode.in/services/${slug}`,
     provider: { "@id": "https://aurakode.in/#business" },
-    areaServed: { "@type": "City", name: "Siliguri" },
+    areaServed: { "@type": "Country", name: "India" },
   };
 
   return (
     <div className="service-page">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
-      <a className="service-skip" href="#service-main">Skip to content</a>
-      <header className="service-header">
-        <Link href="/" aria-label="AuraKode home"><Image src="/brand/aurakode-lockup.svg" alt="AuraKode Business Solutions" width={204} height={48} priority /></Link>
-        <nav aria-label="Service navigation">
-          <Link href="/#real-work">Our work</Link>
-          <Link href="/#services">All services</Link>
-          <Link href="/#contact">Contact</Link>
-        </nav>
-      </header>
-      <main id="service-main">
+      <main id="main-content">
         <section className="service-hero">
           <div className="service-shell service-hero-grid">
             <div>
               <nav className="service-breadcrumb" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/#services">Services</Link><span>/</span><span>{service.eyebrow}</span></nav>
-              <span className="service-eyebrow">{service.eyebrow} · SILIGURI</span>
+              <span className="service-eyebrow">{service.eyebrow} · ACROSS INDIA</span>
               <h1>{service.title}</h1>
               <p>{service.intro}</p>
               <div className="service-actions"><a className="service-primary" href={whatsappUrl(service.whatsapp)} target="_blank" rel="noopener noreferrer">Discuss your project</a><a className="service-secondary" href="#how-we-work">See how we work</a></div>
@@ -85,7 +76,6 @@ export default async function ServiceDetail({ params }: Props) {
         </section>
         <section className="service-close"><div className="service-shell"><span className="service-eyebrow">START A CONVERSATION</span><h2>Tell us where you are now.</h2><p>A rough brief is enough. We will help find a sensible first step and agree on scope before work begins.</p><a className="service-primary" href={whatsappUrl(service.whatsapp)} target="_blank" rel="noopener noreferrer">Chat with AuraKode on WhatsApp</a></div></section>
       </main>
-      <footer className="service-footer"><div className="service-shell"><Link href="/">AuraKode Business Solutions</Link><span>Siliguri, West Bengal · Working everywhere</span><div>{servicePages.filter((item) => item.slug !== slug).map((item) => <Link key={item.slug} href={`/services/${item.slug}`}>{item.metaTitle.split(" | ")[0]}</Link>)}</div></div></footer>
     </div>
   );
 }

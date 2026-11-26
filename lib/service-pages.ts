@@ -19,9 +19,9 @@ export type ServicePage = {
 export const servicePages: ServicePage[] = [
   {
     slug: "website-design-siliguri",
-    title: "Website design in Siliguri that helps people take the next step.",
-    metaTitle: "Website Design in Siliguri | AuraKode Business Solutions",
-    description: "AuraKode designs and builds websites, web apps and business systems in Siliguri. See our live work, process and what goes into a useful website.",
+    title: "Websites that help businesses across India move forward.",
+    metaTitle: "Website Design Across India | AuraKode, Siliguri",
+    description: "Siliguri-based AuraKode designs websites, web apps and business systems for businesses across India, with international projects welcome by enquiry.",
     eyebrow: "WEBSITE DESIGN & DEVELOPMENT",
     intro: "A website should explain your offer, earn trust and make it easy to enquire. We design the public experience and the practical tools behind it around the way your business actually works.",
     image: "/ui-visuals/digital-systems.jpg",
@@ -49,9 +49,9 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "branding-siliguri",
-    title: "Brand identity in Siliguri, built around what makes you different.",
-    metaTitle: "Branding & Identity Design in Siliguri | AuraKode",
-    description: "AuraKode helps Siliguri businesses clarify their message and build a consistent visual identity. Explore positioning, logo design, guidelines and launch assets.",
+    title: "Brand identity built around what makes you different.",
+    metaTitle: "Branding & Identity Design Across India | AuraKode",
+    description: "Based in Siliguri, AuraKode helps businesses across India clarify their message and build a consistent visual identity. International enquiries are welcome.",
     eyebrow: "BRAND STRATEGY & IDENTITY",
     intro: "When your website, social posts and sales material feel like different businesses, people have to work harder to recognize you. We connect a clear message with a visual system your team can actually use.",
     image: "/ui-visuals/identity-worktable.jpg",
@@ -79,9 +79,9 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "seo-siliguri",
-    title: "SEO in Siliguri, focused on useful pages and relevant enquiries.",
-    metaTitle: "SEO Services in Siliguri | AuraKode Business Solutions",
-    description: "Improve how customers discover and understand your business. AuraKode connects technical SEO, page content, local visibility and measurement in Siliguri.",
+    title: "SEO that connects useful pages with relevant enquiries.",
+    metaTitle: "SEO Services Across India | AuraKode, Siliguri",
+    description: "Siliguri-based AuraKode supports businesses across India with technical SEO, page content, local visibility and measurement. International enquiries are welcome.",
     eyebrow: "SEARCH VISIBILITY & GROWTH",
     intro: "Being found is only the beginning. The page a person lands on needs to answer their question, show why you are relevant and offer a sensible next step. We approach search visibility as part of that full journey.",
     image: "/ui-visuals/growth-path.jpg",
